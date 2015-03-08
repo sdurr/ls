@@ -14,6 +14,10 @@ NAME		= ft_ls
 
 SRC			= main.c \
 				ft_create_elem.c \
+				ft_create_elem_path.c \
+				ft_ls_read.c \
+				test_open.c \
+				ft_ls_path.c \
 
 OBJ			= $(SRC:.c=.o)
 

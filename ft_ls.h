@@ -28,6 +28,18 @@ typedef struct	s_list
 	struct	s_list	*next;
 }				t_list;
 
-t_list		*ft_create_elem(t_list *t, char *s, int n);
+typedef struct	s_path
+{
+	struct	s_path	*prev;
+			char	*s;
+			int		n;
+	struct	s_path	*next;
+}				t_path;
 
+t_list		*ft_create_elem(t_list *t, char *s, int n);
+t_list		*ft_ls_read(char *av, t_list *s);
+
+t_path		*ft_create_elem_path(t_path *t, char *s, int n);
+t_path		*ft_ls_path(t_list *s, t_path *path);
+int		test_open(char *s);
 #endif
