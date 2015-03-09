@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls_path.c                                       :+:      :+:    :+:   */
+/*   ft_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:53:06 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 10:52:51 by sdurr            ###   ########.fr       */
+/*   Created: 2014/12/15 11:19:23 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/09 10:12:15 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <time.h>
+#include <sys/stat.h>
 #include "ft_ls.h"
-#include <stdlib.h>
 #include "libft.h"
 
-t_path		*ft_ls_path(t_list *s, t_path *path)
+char 	*ft_time(char *av)
 {
-	char *test;
+	struct	stat sb;
+	time_t time;
+	char *ret;
+	int i;
 	char *tmp;
-	t_list *begin;
+	int j;
 
-	begin = s;
-	test = ft_strdup (".");
-	if (s->s[1])
-		test = ft_strjoin(test, s->s);
-	s = s->next;
-	if (*test != '\0')
-		test = ft_strjoin(test, "/");
-	while (s->next != NULL)
-	{
-		tmp = ft_strdup(test);
-		if (s->n == 1)
-		{
-			tmp = ft_strjoin(test, s->s);
-			path = ft_create_elem_path(path, tmp, test_open(tmp));
-		}
-		s = s->next;
-	}
-	s = begin;
-	return (path);
+	tmp = ft_strnew(17);
+	i = 4;
+	j = 0;
+	stat(av, &sb);
+	time = sb.st_mtime;
+	ret =ctime(&time);
+	while (i < 16)
+		tmp[j++] = ret[i++];
+	tmp = ft_strjoin(tmp, " ");
+return (tmp);
 }

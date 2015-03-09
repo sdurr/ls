@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls_path.c                                       :+:      :+:    :+:   */
+/*   ft_total_blocks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:53:06 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 10:52:51 by sdurr            ###   ########.fr       */
+/*   Created: 2014/12/17 13:21:16 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/09 17:34:12 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
-#include <stdlib.h>
+#include <sys/stat.h>
 #include "libft.h"
+#include "ft_ls.h"
 
-t_path		*ft_ls_path(t_list *s, t_path *path)
+void	nb_blocks(t_list *s)
 {
-	char *test;
-	char *tmp;
-	t_list *begin;
+	struct stat sb;
+	int c;
 
-	begin = s;
-	test = ft_strdup (".");
-	if (s->s[1])
-		test = ft_strjoin(test, s->s);
-	s = s->next;
-	if (*test != '\0')
-		test = ft_strjoin(test, "/");
+	c = 0;
+	while (ft_strchr(s->s, ':') != NULL)
+		s = s->next;
 	while (s->next != NULL)
 	{
-		tmp = ft_strdup(test);
-		if (s->n == 1)
-		{
-			tmp = ft_strjoin(test, s->s);
-			path = ft_create_elem_path(path, tmp, test_open(tmp));
-		}
+		stat(s->s, &sb);
+		c = c + sb.st_blocks;
 		s = s->next;
+		ft_putstr("seg");
 	}
-	s = begin;
-	return (path);
+	ft_putstr("total ");
+	ft_putnbr(c);
+	ft_putchar ('\n');
+
 }

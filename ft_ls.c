@@ -5,43 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 17:29:07 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/05 17:41:36 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/09 14:44:21 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
-int		main(int ac, char **av)
+t_list		*ft_ls(char **av, int nb, char c)
 {
-	int		flags;
 	t_list *s;
-	int nb;
+	t_path *path;
 
-	flags = 0;
+	if (av)
+	path = malloc(sizeof(t_path));
+	path = NULL;
 	s = malloc(sizeof(t_list));
 	s = NULL;
-	if ((flags = test_option(av, 0, 0, &nb)) == -1)
-		return (0);
-	if (ac > 0)
-	s = ret_ls(s, av, flags, nb);
-	if (flags & OPT_R)
+	nb++;
+	if (!(av[nb]))
+		s = ft_ls_read(".", s, c);
+	else
 	{
-		while (s->next != NULL)
-			s = s->next;
-		while (s->prev != NULL)
-		{
-			ft_putendl(s->s);
-			s = s->prev;
-		}
-		return (0);
+		av[nb] = ft_strjoin("./", av[nb]);
+		while (av[nb])
+			s = ft_ls_read(av[nb++], s, c);
 	}
-	while (s)
-	{
-		ft_putendl(s->s);
-		s = s->next;
-	}
-	return (0);
+		return (s);
 }

@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls_path.c                                       :+:      :+:    :+:   */
+/*   ft_opt_l_uid_time.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:53:06 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 10:52:51 by sdurr            ###   ########.fr       */
+/*   Created: 2014/12/19 18:11:31 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/09 10:08:11 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <stdlib.h>
 #include "libft.h"
 
-t_path		*ft_ls_path(t_list *s, t_path *path)
-{
-	char *test;
-	char *tmp;
-	t_list *begin;
 
-	begin = s;
-	test = ft_strdup (".");
-	if (s->s[1])
-		test = ft_strjoin(test, s->s);
-	s = s->next;
-	if (*test != '\0')
-		test = ft_strjoin(test, "/");
-	while (s->next != NULL)
-	{
-		tmp = ft_strdup(test);
-		if (s->n == 1)
-		{
-			tmp = ft_strjoin(test, s->s);
-			path = ft_create_elem_path(path, tmp, test_open(tmp));
-		}
-		s = s->next;
-	}
-	s = begin;
-	return (path);
+char 	*opt_uid_time(char *tab)
+{
+	char *tmp;
+
+	tmp = ft_strdup(" ");
+	tmp = ft_strjoin(tmp, name_owner(tab));
+	tmp = ft_strjoin(tmp, " ");
+	tmp = ft_strjoin(tmp, ft_time(tab));
+	return (tmp);
 }
