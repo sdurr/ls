@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:35:51 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 17:30:40 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/10 08:47:02 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ t_list 	*opt_l(t_list *s)
 			buf = ft_strjoin(buf, " ");
 		buf = ft_strjoin(buf, ft_itoa(c));
 		buf = ft_strjoin(buf, opt_uid_time(s->s));
-		lstat(s->s, &sb);
-		link = ft_strdup(s->s);
+		if (lstat(s->s, &sb) != -1)
+			link = ft_strdup(s->s);
 		s->s = ft_strjoin(buf, s->s);
 		if (S_ISLNK(sb.st_mode))
 		{
 			buf  = ft_strnew(50);
 			s->s = ft_strjoin(s->s, " -> ");
-		readlink(link, buf, 50);
+			readlink(link, buf, 50);
 			s->s = ft_strjoin(s->s, buf);
 		}
 		s = s->next;

@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ret_ls.c                                           :+:      :+:    :+:   */
+/*   test_dir.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/10 16:00:17 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/10 09:00:52 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/10 15:59:22 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
+int			test_dir(t_list *s, char c)
 {
-	char c;
+	t_list *begin;
 
-	if (flags & OPT_A)
+	begin = s;
+	if (c == '.')
+		ft_putstr("test");
+	while (s->next != NULL)
 	{
-		c = 125;
-		s = ft_ls(av, nb, 125);
-	}
-	else
-	{
-		c = '.';
-		s = ft_ls(av, nb, '.');
-	}
-	if (flags & OPT_R_R)
-	{
-		while (test_dir(s, c) == 1)
+		if (s->n == 1)
 		{
-			s = open_list(s, c);
-			ft_putendl("ok");
+			s = begin;
+			return (1);
 		}
+		else
+			s = s->next;
 	}
-	if (flags & OPT_T)
-		s = opt_t(s);
-	if (flags & OPT_L)
-		s = opt_l(s);
-	return (s);
+	s = begin;
+	return (0);
 }

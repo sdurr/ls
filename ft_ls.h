@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 13:43:49 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/10 14:42:37 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,20 @@ typedef struct	s_list
 {
 	struct	s_list	*prev;
 			char	*s;
+			char	*path;
 			int		n;
 	struct	s_list	*next;
 }				t_list;
 
-typedef struct	s_path
-{
-	struct	s_path	*prev;
-			char	*s;
-			int		n;
-	struct	s_path	*next;
-}				t_path;
-
-t_list		*ft_create_elem(t_list *t, char *s, int n);
-t_path		*ft_create_elem_path(t_path *t, char *s, int n);
+t_list		*ft_create_elem(t_list *t, char *s, char *path, int n);
 t_list		*ret_ls(t_list *s, char **av, int flags, int nb);
 t_list		*opt_t(t_list *s); /*trie la liste en parametre avec le time*/
 t_list		*ft_ls(char **av, int nb, char c);
 t_list		*opt_l(t_list *s); /*ajoute a la string option l*/
-
+t_list		*open_list(t_list *s, char c);
 t_list		*ft_ls_read(char *av, t_list *s, char c); /*prend l'av en parametre et retoourne list chainee avec les noms de ce que contien le dossier*/
-t_path		*ft_ls_path(t_list *s, t_path *path);
-
+char 		*ft_ls_path(char *file, char *name);
+int			test_dir(t_list *s, char c);
 int			check_option_illegal(char *argv);
 int			test_open(char *s);
 int			test_option(char **argv, int i, int j, int *nb);

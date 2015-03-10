@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ret_ls.c                                           :+:      :+:    :+:   */
+/*   open_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/10 16:00:17 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/10 09:02:40 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/10 16:01:15 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
+t_list		*open_list(t_list *s, char c)
 {
-	char c;
+	t_list *begin;
+	t_list *add;
+	t_list *add_2;
+//	t_list *s_path;
 
-	if (flags & OPT_A)
+	add = malloc(sizeof(t_list));
+	add = NULL;
+	add_2 = add;
+	begin = s;
+	while (s->next != NULL)
 	{
-		c = 125;
-		s = ft_ls(av, nb, 125);
-	}
-	else
-	{
-		c = '.';
-		s = ft_ls(av, nb, '.');
-	}
-	if (flags & OPT_R_R)
-	{
-		while (test_dir(s, c) == 1)
+		if (s->n == 1)
 		{
-			s = open_list(s, c);
-			ft_putendl("ok");
+			add = ft_ls_read(s->path, add, c);
+			s->n = 0;
+			while (s->next != NULL)
+				s = s->next;
+			add->prev = s;
+			s->next = add;
+			s = begin;
+			add = add_2;
 		}
+		s = s->next;
 	}
-	if (flags & OPT_T)
-		s = opt_t(s);
-	if (flags & OPT_L)
-		s = opt_l(s);
-	return (s);
+	s->next = add;
+	return (begin);
 }

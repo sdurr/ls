@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 17:27:21 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/05 18:12:40 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/10 14:28:41 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-t_list		*ft_create_elem(t_list *t, char *s, int n)
+t_list		*ft_create_elem(t_list *t, char *s, char *path, int n)
 {
 	t_list *elem;
 	t_list *begin;
@@ -24,6 +24,7 @@ t_list		*ft_create_elem(t_list *t, char *s, int n)
 	elem = malloc(sizeof(t_list));
 	elem->n = n;
 	elem->s = s;
+	elem->path = path;
 	elem->next = NULL;
 	if (t == NULL)
 	{

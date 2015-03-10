@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 17:29:07 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/10 14:59:30 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,13 @@ int		main(int ac, char **av)
 	}
 	while (s)
 	{
-		ft_putendl(s->s);
+		ft_putstr(s->s);
+		ft_putstr(" = ");
+		ft_putnbr(s->n);
+		ft_putstr(" path = ");
+		ft_putstr(s->path);
+		ft_putchar ('\n');
 		s = s->next;
-	}
+		}
 	return (0);
 }

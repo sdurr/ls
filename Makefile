@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/17 09:02:37 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/09 11:43:12 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/10 14:40:55 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,6 @@ NAME		= ft_ls
 
 SRC			= main.c \
 				ft_create_elem.c \
-				ft_create_elem_path.c \
 				ft_ls_read.c \
 				test_open.c \
 				ft_ls_path.c \
@@ -30,7 +29,8 @@ SRC			= main.c \
 				opt_uid_time.c \
 				nb_blocks.c \
 				opt_t.c \
-
+				test_dir.c \
+				open_list.c \
 
 OBJ			= $(SRC:.c=.o)
 

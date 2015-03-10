@@ -14,10 +14,7 @@ t_list		*ft_ls_read(char *av, t_list *s, char c)
   t = ft_strnew(15);
   if (av)
     t = ft_strdup(av);
-/*  else
-    t = ft_strdup(".");
-*/
-  s = ft_create_elem(s, ft_strjoin(t, ":"), 10);
+  s = ft_create_elem(s, t, ft_ls_path(t, ""), 2);
   if ((dirp = opendir(t)) != NULL)
   {
       while ((read = readdir(dirp)) != NULL)
@@ -30,7 +27,7 @@ t_list		*ft_ls_read(char *av, t_list *s, char c)
 				  d = ft_strjoin(d, "/");
 				  d = ft_strjoin(d, read->d_name);
 			  }
-			  s = ft_create_elem(s, ft_strdup(read->d_name), test_open(d));
+			  s = ft_create_elem(s, ft_strdup(read->d_name), ft_ls_path(t, read->d_name), test_open(ft_ls_path(t, read->d_name)));
 
 		  }
 	  }
