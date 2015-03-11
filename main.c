@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 11:22:13 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 14:13:04 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ int		main(int ac, char **av)
 	}
 	while (s)
 	{
+		if (ft_strchr(s->s, ':') != NULL && ft_strchr(s->s, '/') != NULL)
+			ft_putchar ('\n');
 		ft_putstr(s->s);
-		ft_putstr(" = ");
-		ft_putnbr(s->n);
 		ft_putchar ('\n');
-
 		s = s->next;
 		}
 	return (0);

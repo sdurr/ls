@@ -1,0 +1,687 @@
+blablacheck.c open = 0
+check_option_illegal.c open = 0
+check_option_illegal.o open = 0
+diff1 open = 0
+diff2 open = 0
+ft_count_sous_dossiers.c open = 0
+ft_count_sous_dossiers.o open = 0
+ft_create_elem.c open = 0
+ft_create_elem.o open = 0
+ft_ls open = 0
+ft_ls.c open = 0
+ft_ls.h open = 0
+ft_ls.o open = 0
+ft_ls_path.c open = 0
+ft_ls_path.o open = 0
+ft_ls_read.c open = 0
+ft_ls_read.c~ open = 0
+ft_ls_read.o open = 0
+ft_permission.c open = 0
+ft_permission.o open = 0
+ft_time.c open = 0
+ft_time.o open = 0
+l open = 0
+libft open = 1
+blablacheck.c open = 0
+check_option_illegal.c open = 0
+check_option_illegal.o open = 0
+diff1 open = 0
+diff2 open = 0
+ft_count_sous_dossiers.c open = 0
+ft_count_sous_dossiers.o open = 0
+ft_create_elem.c open = 0
+ft_create_elem.o open = 0
+ft_ls open = 0
+ft_ls.c open = 0
+ft_ls.h open = 0
+ft_ls.o open = 0
+ft_ls_path.c open = 0
+ft_ls_path.o open = 0
+ft_ls_read.c open = 0
+ft_ls_read.c~ open = 0
+ft_ls_read.o open = 0
+ft_permission.c open = 0
+ft_permission.o open = 0
+ft_time.c open = 0
+ft_time.o open = 0
+l open = 0
+libft open = 0
+main.c open = 0
+main.c~ open = 0
+main.o open = 0
+Makefile open = 0
+name_owner.c open = 0
+name_owner.o open = 0
+nb_blocks.c open = 0
+nb_blocks.o open = 0
+open_list.c open = 0
+open_list.c~ open = 0
+open_list.o open = 0
+opt_l.c open = 0
+opt_l.o open = 0
+opt_t.c open = 0
+opt_t.o open = 0
+opt_uid_time.c open = 0
+opt_uid_time.o open = 0
+ret_ls.c open = 0
+ret_ls.c~ open = 0
+ret_ls.o open = 0
+test open = 0
+test_dir.c open = 0
+test_dir.o open = 0
+test_open.c open = 0
+test_open.o open = 0
+test_option.c open = 0
+test_option.o open = 0
+./libft : open = 2
+ft_atoi.c open = 0
+ft_atoi.o open = 0
+ft_bzero.c open = 0
+ft_bzero.o open = 0
+ft_copy_tmp.c open = 0
+ft_copy_tmp.o open = 0
+ft_count_char.c open = 0
+ft_count_char.o open = 0
+ft_isalnum.c open = 0
+ft_isalnum.o open = 0
+ft_isalpha.c open = 0
+ft_isalpha.o open = 0
+ft_isascii.c open = 0
+ft_isascii.o open = 0
+ft_isdigit.c open = 0
+ft_isdigit.o open = 0
+ft_isprint.c open = 0
+ft_isprint.o open = 0
+ft_itoa.c open = 0
+ft_itoa.o open = 0
+ft_last_line.c open = 0
+ft_last_line.o open = 0
+ft_long_int.c open = 0
+ft_long_int.o open = 0
+ft_long_long.c open = 0
+ft_long_long.o open = 0
+ft_lstadd.c open = 0
+ft_lstdel.c open = 0
+ft_lstdelone.c open = 0
+ft_lstiter.c open = 0
+ft_lstmap.c open = 0
+ft_memalloc.c open = 0
+ft_memalloc.o open = 0
+ft_memccpy.c open = 0
+ft_memccpy.o open = 0
+ft_memchr.c open = 0
+ft_memchr.o open = 0
+ft_memcmp.c open = 0
+ft_memcmp.o open = 0
+ft_memcpy.c open = 0
+ft_memcpy.o open = 0
+ft_memdel.c open = 0
+ft_memdel.o open = 0
+ft_memmove.c open = 0
+ft_memmove.o open = 0
+ft_memset.c open = 0
+ft_memset.o open = 0
+ft_putchar.c open = 0
+ft_putchar.o open = 0
+ft_putchar_fd.c open = 0
+ft_putchar_fd.o open = 0
+ft_putendl.c open = 0
+ft_putendl.o open = 0
+ft_putendl_fd.c open = 0
+ft_putendl_fd.o open = 0
+ft_putnbr.c open = 0
+ft_putnbr.o open = 0
+ft_putnbr_fd.c open = 0
+ft_putnbr_fd.o open = 0
+ft_putstr.c open = 0
+ft_putstr.o open = 0
+ft_putstr_fd.c open = 0
+ft_putstr_fd.o open = 0
+ft_revers.c open = 0
+ft_revers.o open = 0
+ft_split_s.c open = 0
+ft_split_s.o open = 0
+ft_strcat.c open = 0
+ft_strcat.o open = 0
+ft_strchr.c open = 0
+ft_strchr.o open = 0
+ft_strclr.c open = 0
+ft_strclr.o open = 0
+ft_strcmp.c open = 0
+ft_strcmp.o open = 0
+ft_strcpy.c open = 0
+ft_strcpy.o open = 0
+ft_strdel.c open = 0
+ft_strdel.o open = 0
+ft_strdup.c open = 0
+ft_strdup.o open = 0
+ft_strequ.c open = 0
+ft_strequ.o open = 0
+ft_striter.c open = 0
+ft_striter.o open = 0
+ft_striteri.c open = 0
+ft_striteri.o open = 0
+ft_strjoin.c open = 0
+ft_strjoin.o open = 0
+ft_strlcat.c open = 0
+ft_strlcat.o open = 0
+ft_strlen.c open = 0
+ft_strlen.o open = 0
+ft_strmap.c open = 0
+ft_strmap.o open = 0
+ft_strmapi.c open = 0
+ft_strmapi.o open = 0
+ft_strncat.c open = 0
+ft_strncat.o open = 0
+ft_strncmp.c open = 0
+ft_strncmp.o open = 0
+ft_strncpy.c open = 0
+ft_strncpy.o open = 0
+ft_strnequ.c open = 0
+ft_strnequ.o open = 0
+ft_strnew.c open = 0
+ft_strnew.o open = 0
+ft_strnstr.c open = 0
+ft_strnstr.o open = 0
+ft_strrchr.c open = 0
+ft_strrchr.o open = 0
+ft_strsplit.c open = 0
+ft_strsplit.o open = 0
+ft_strstr.c open = 0
+ft_strstr.o open = 0
+ft_strsub.c open = 0
+ft_strsub.o open = 0
+ft_strtrim.c open = 0
+ft_strtrim.o open = 0
+ft_tolower.c open = 0
+ft_tolower.o open = 0
+ft_toupper.c open = 0
+ft_toupper.o open = 0
+ft_word_long.c open = 0
+ft_word_long.o open = 0
+get_next_line.c open = 0
+get_next_line.h open = 0
+get_next_line.o open = 0
+includes open = 0
+libft.a open = 0
+libft.h open = 0
+Makefile open = 0
+./test : open = 2
+4 open = 0
+blabla open = 0
+k open = 0
+ls.c open = 0
+test1 open = 0
+./libft/includes : open = 2
+get_next_line.h open = 0
+libft.h open = 0
+./test/4 : open = 2
+./test/blabla : open = 2
+d open = 0
+f open = 0
+./test/k : open = 2
+./test/test1 : open = 2
+1 open = 0
+2 open = 0
+3 open = 0
+test2 open = 0
+./test/test1/test2 : open = 2
+4 open = 0
+5 open = 0
+6 open = 0
+dossier open = 1
+blablacheck.c open = 0
+check_option_illegal.c open = 0
+check_option_illegal.o open = 0
+diff1 open = 0
+diff2 open = 0
+ft_count_sous_dossiers.c open = 0
+ft_count_sous_dossiers.o open = 0
+ft_create_elem.c open = 0
+ft_create_elem.o open = 0
+ft_ls open = 0
+ft_ls.c open = 0
+ft_ls.h open = 0
+ft_ls.o open = 0
+ft_ls_path.c open = 0
+ft_ls_path.o open = 0
+ft_ls_read.c open = 0
+ft_ls_read.c~ open = 0
+ft_ls_read.o open = 0
+ft_permission.c open = 0
+ft_permission.o open = 0
+ft_time.c open = 0
+ft_time.o open = 0
+l open = 0
+libft open = 0
+main.c open = 0
+main.c~ open = 0
+main.o open = 0
+Makefile open = 0
+name_owner.c open = 0
+name_owner.o open = 0
+nb_blocks.c open = 0
+nb_blocks.o open = 0
+open_list.c open = 0
+open_list.c~ open = 0
+open_list.o open = 0
+opt_l.c open = 0
+opt_l.o open = 0
+opt_t.c open = 0
+opt_t.o open = 0
+opt_uid_time.c open = 0
+opt_uid_time.o open = 0
+ret_ls.c open = 0
+ret_ls.c~ open = 0
+ret_ls.o open = 0
+test open = 0
+test_dir.c open = 0
+test_dir.o open = 0
+test_open.c open = 0
+test_open.o open = 0
+test_option.c open = 0
+test_option.o open = 0
+./libft : open = 2
+ft_atoi.c open = 0
+ft_atoi.o open = 0
+ft_bzero.c open = 0
+ft_bzero.o open = 0
+ft_copy_tmp.c open = 0
+ft_copy_tmp.o open = 0
+ft_count_char.c open = 0
+ft_count_char.o open = 0
+ft_isalnum.c open = 0
+ft_isalnum.o open = 0
+ft_isalpha.c open = 0
+ft_isalpha.o open = 0
+ft_isascii.c open = 0
+ft_isascii.o open = 0
+ft_isdigit.c open = 0
+ft_isdigit.o open = 0
+ft_isprint.c open = 0
+ft_isprint.o open = 0
+ft_itoa.c open = 0
+ft_itoa.o open = 0
+ft_last_line.c open = 0
+ft_last_line.o open = 0
+ft_long_int.c open = 0
+ft_long_int.o open = 0
+ft_long_long.c open = 0
+ft_long_long.o open = 0
+ft_lstadd.c open = 0
+ft_lstdel.c open = 0
+ft_lstdelone.c open = 0
+ft_lstiter.c open = 0
+ft_lstmap.c open = 0
+ft_memalloc.c open = 0
+ft_memalloc.o open = 0
+ft_memccpy.c open = 0
+ft_memccpy.o open = 0
+ft_memchr.c open = 0
+ft_memchr.o open = 0
+ft_memcmp.c open = 0
+ft_memcmp.o open = 0
+ft_memcpy.c open = 0
+ft_memcpy.o open = 0
+ft_memdel.c open = 0
+ft_memdel.o open = 0
+ft_memmove.c open = 0
+ft_memmove.o open = 0
+ft_memset.c open = 0
+ft_memset.o open = 0
+ft_putchar.c open = 0
+ft_putchar.o open = 0
+ft_putchar_fd.c open = 0
+ft_putchar_fd.o open = 0
+ft_putendl.c open = 0
+ft_putendl.o open = 0
+ft_putendl_fd.c open = 0
+ft_putendl_fd.o open = 0
+ft_putnbr.c open = 0
+ft_putnbr.o open = 0
+ft_putnbr_fd.c open = 0
+ft_putnbr_fd.o open = 0
+ft_putstr.c open = 0
+ft_putstr.o open = 0
+ft_putstr_fd.c open = 0
+ft_putstr_fd.o open = 0
+ft_revers.c open = 0
+ft_revers.o open = 0
+ft_split_s.c open = 0
+ft_split_s.o open = 0
+ft_strcat.c open = 0
+ft_strcat.o open = 0
+ft_strchr.c open = 0
+ft_strchr.o open = 0
+ft_strclr.c open = 0
+ft_strclr.o open = 0
+ft_strcmp.c open = 0
+ft_strcmp.o open = 0
+ft_strcpy.c open = 0
+ft_strcpy.o open = 0
+ft_strdel.c open = 0
+ft_strdel.o open = 0
+ft_strdup.c open = 0
+ft_strdup.o open = 0
+ft_strequ.c open = 0
+ft_strequ.o open = 0
+ft_striter.c open = 0
+ft_striter.o open = 0
+ft_striteri.c open = 0
+ft_striteri.o open = 0
+ft_strjoin.c open = 0
+ft_strjoin.o open = 0
+ft_strlcat.c open = 0
+ft_strlcat.o open = 0
+ft_strlen.c open = 0
+ft_strlen.o open = 0
+ft_strmap.c open = 0
+ft_strmap.o open = 0
+ft_strmapi.c open = 0
+ft_strmapi.o open = 0
+ft_strncat.c open = 0
+ft_strncat.o open = 0
+ft_strncmp.c open = 0
+ft_strncmp.o open = 0
+ft_strncpy.c open = 0
+ft_strncpy.o open = 0
+ft_strnequ.c open = 0
+ft_strnequ.o open = 0
+ft_strnew.c open = 0
+ft_strnew.o open = 0
+ft_strnstr.c open = 0
+ft_strnstr.o open = 0
+ft_strrchr.c open = 0
+ft_strrchr.o open = 0
+ft_strsplit.c open = 0
+ft_strsplit.o open = 0
+ft_strstr.c open = 0
+ft_strstr.o open = 0
+ft_strsub.c open = 0
+ft_strsub.o open = 0
+ft_strtrim.c open = 0
+ft_strtrim.o open = 0
+ft_tolower.c open = 0
+ft_tolower.o open = 0
+ft_toupper.c open = 0
+ft_toupper.o open = 0
+ft_word_long.c open = 0
+ft_word_long.o open = 0
+get_next_line.c open = 0
+get_next_line.h open = 0
+get_next_line.o open = 0
+includes open = 0
+libft.a open = 0
+libft.h open = 0
+Makefile open = 0
+./test : open = 2
+4 open = 0
+blabla open = 0
+k open = 0
+ls.c open = 0
+test1 open = 0
+./libft/includes : open = 2
+get_next_line.h open = 0
+libft.h open = 0
+./test/4 : open = 2
+./test/blabla : open = 2
+d open = 0
+f open = 0
+./test/k : open = 2
+./test/test1 : open = 2
+1 open = 0
+2 open = 0
+3 open = 0
+test2 open = 0
+./test/test1/test2 : open = 2
+4 open = 0
+5 open = 0
+6 open = 0
+dossier open = 0
+teest3 open = 0
+./test/test1/test2/dossier : open = 2
+do open = 0
+dossier3 open = 0
+./test/test1/test2/teest3 : open = 2
+7 open = 0
+8 open = 0
+9 open = 0
+./test/test1/test2/dossier/dossier3 : open = 2
+dossier4 open = 0
+jghdf open = 0
+./test/test1/test2/dossier/dossier3/dossier4 : open = 2
+dossier5 open = 0
+h open = 0
+j open = 0
+k open = 0
+l open = 0
+o open = 0
+./test/test1/test2/dossier/dossier3/dossier4/dossier5 : open = 2
+check.c
+check_option_illegal.c
+check_option_illegal.o
+diff1
+diff2
+ft_count_sous_dossiers.c
+ft_count_sous_dossiers.o
+ft_create_elem.c
+ft_create_elem.o
+ft_ls
+ft_ls.c
+ft_ls.h
+ft_ls.o
+ft_ls_path.c
+ft_ls_path.o
+ft_ls_read.c
+ft_ls_read.c~
+ft_ls_read.o
+ft_permission.c
+ft_permission.o
+ft_time.c
+ft_time.o
+l
+libft
+main.c
+main.c~
+main.o
+Makefile
+name_owner.c
+name_owner.o
+nb_blocks.c
+nb_blocks.o
+open_list.c
+open_list.c~
+open_list.o
+opt_l.c
+opt_l.o
+opt_t.c
+opt_t.o
+opt_uid_time.c
+opt_uid_time.o
+ret_ls.c
+ret_ls.c~
+ret_ls.o
+test
+test_dir.c
+test_dir.o
+test_open.c
+test_open.o
+test_option.c
+test_option.o
+./libft :
+ft_atoi.c
+ft_atoi.o
+ft_bzero.c
+ft_bzero.o
+ft_copy_tmp.c
+ft_copy_tmp.o
+ft_count_char.c
+ft_count_char.o
+ft_isalnum.c
+ft_isalnum.o
+ft_isalpha.c
+ft_isalpha.o
+ft_isascii.c
+ft_isascii.o
+ft_isdigit.c
+ft_isdigit.o
+ft_isprint.c
+ft_isprint.o
+ft_itoa.c
+ft_itoa.o
+ft_last_line.c
+ft_last_line.o
+ft_long_int.c
+ft_long_int.o
+ft_long_long.c
+ft_long_long.o
+ft_lstadd.c
+ft_lstdel.c
+ft_lstdelone.c
+ft_lstiter.c
+ft_lstmap.c
+ft_memalloc.c
+ft_memalloc.o
+ft_memccpy.c
+ft_memccpy.o
+ft_memchr.c
+ft_memchr.o
+ft_memcmp.c
+ft_memcmp.o
+ft_memcpy.c
+ft_memcpy.o
+ft_memdel.c
+ft_memdel.o
+ft_memmove.c
+ft_memmove.o
+ft_memset.c
+ft_memset.o
+ft_putchar.c
+ft_putchar.o
+ft_putchar_fd.c
+ft_putchar_fd.o
+ft_putendl.c
+ft_putendl.o
+ft_putendl_fd.c
+ft_putendl_fd.o
+ft_putnbr.c
+ft_putnbr.o
+ft_putnbr_fd.c
+ft_putnbr_fd.o
+ft_putstr.c
+ft_putstr.o
+ft_putstr_fd.c
+ft_putstr_fd.o
+ft_revers.c
+ft_revers.o
+ft_split_s.c
+ft_split_s.o
+ft_strcat.c
+ft_strcat.o
+ft_strchr.c
+ft_strchr.o
+ft_strclr.c
+ft_strclr.o
+ft_strcmp.c
+ft_strcmp.o
+ft_strcpy.c
+ft_strcpy.o
+ft_strdel.c
+ft_strdel.o
+ft_strdup.c
+ft_strdup.o
+ft_strequ.c
+ft_strequ.o
+ft_striter.c
+ft_striter.o
+ft_striteri.c
+ft_striteri.o
+ft_strjoin.c
+ft_strjoin.o
+ft_strlcat.c
+ft_strlcat.o
+ft_strlen.c
+ft_strlen.o
+ft_strmap.c
+ft_strmap.o
+ft_strmapi.c
+ft_strmapi.o
+ft_strncat.c
+ft_strncat.o
+ft_strncmp.c
+ft_strncmp.o
+ft_strncpy.c
+ft_strncpy.o
+ft_strnequ.c
+ft_strnequ.o
+ft_strnew.c
+ft_strnew.o
+ft_strnstr.c
+ft_strnstr.o
+ft_strrchr.c
+ft_strrchr.o
+ft_strsplit.c
+ft_strsplit.o
+ft_strstr.c
+ft_strstr.o
+ft_strsub.c
+ft_strsub.o
+ft_strtrim.c
+ft_strtrim.o
+ft_tolower.c
+ft_tolower.o
+ft_toupper.c
+ft_toupper.o
+ft_word_long.c
+ft_word_long.o
+get_next_line.c
+get_next_line.h
+get_next_line.o
+includes
+libft.a
+libft.h
+Makefile
+./test :
+4
+blabla
+k
+ls.c
+test1
+./libft/includes :
+get_next_line.h
+libft.h
+./test/4 :
+./test/blabla :
+d
+f
+./test/k :
+./test/test1 :
+1
+2
+3
+test2
+./test/test1/test2 :
+4
+5
+6
+dossier
+teest3
+./test/test1/test2/dossier :
+do
+dossier3
+./test/test1/test2/teest3 :
+7
+8
+9
+./test/test1/test2/dossier/dossier3 :
+dossier4
+jghdf
+./test/test1/test2/dossier/dossier3/dossier4 :
+dossier5
+h
+j
+k
+l
+o
+./test/test1/test2/dossier/dossier3/dossier4/dossier5 :
+j

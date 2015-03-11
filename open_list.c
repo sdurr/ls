@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 09:02:40 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 12:10:15 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 13:49:11 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_list		*open_list(t_list *s, char c)
 	t_list *begin;
 	t_list *add;
 	t_list *add_2;
-//	t_list *s_path;
 
 	add = malloc(sizeof(t_list));
 	add = NULL;
