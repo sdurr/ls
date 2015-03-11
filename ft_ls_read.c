@@ -9,7 +9,6 @@ t_list		*ft_ls_read(char *av, t_list *s, char c)
   DIR *dirp;
   struct dirent *read;
   char *t;
-  char *d;
 
   t = ft_strnew(15);
   if (av)
@@ -21,13 +20,13 @@ t_list		*ft_ls_read(char *av, t_list *s, char c)
 	  {
 		  if (read->d_name[0] != c)
 		  {
-			  if (t)
-			  {
-				  d = ft_strdup(t);
-				  d = ft_strjoin(d, "/");
-				  d = ft_strjoin(d, read->d_name);
-			  }
-			  s = ft_create_elem(s, ft_strdup(read->d_name), ft_ls_path(t, read->d_name), test_open(ft_ls_path(t, read->d_name)));
+/*			  ft_putstr(" test open path = ");
+			  ft_putendl(ft_ls_path(t, read->d_name));
+			  ft_putnbr(test_open(ft_ls_path(t, read->d_name)));
+			  ft_putchar ('\n');
+			  ft_putchar ('\n');
+*/		  s = ft_create_elem(s, ft_strdup(read->d_name), ft_ls_path(t, read->d_name), test_open(ft_ls_path(t, read->d_name)));
+
 
 		  }
 	  }

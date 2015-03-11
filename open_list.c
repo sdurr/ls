@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 09:02:40 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/10 16:01:15 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 12:10:15 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ t_list		*open_list(t_list *s, char c)
 		}
 		s = s->next;
 	}
-	s->next = add;
+	if (s->n == 1)
+	{
+		add = ft_ls_read(s->path, add, c);
+		s->n = 0;
+		add->prev = s;
+		s->next = add;
+		s = begin;
+		add = add_2;
+	}
 	return (begin);
 }
