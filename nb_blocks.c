@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 13:21:16 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 13:59:46 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 15:40:22 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	nb_blocks(t_list *s)
 	int c;
 
 	c = 0;
-	while (s && ft_strchr(s->s, ':'))
+	s = s->next;
+	while (ft_strchr(s->s, '/') == NULL && s->next != NULL)
 	{
-		if (stat(s->path, &sb) != -1)
+		stat(s->path, &sb);
 			c = c + sb.st_blocks;
 		s = s->next;
 	}
 	ft_putstr("total ");
 	ft_putnbr(c);
 	ft_putchar ('\n');
-
 }

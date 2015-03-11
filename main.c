@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 14:13:04 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 17:20:25 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,25 @@ int		main(int ac, char **av)
 	if (ac > 0)
 	s = ret_ls(s, av, flags, nb);
 	if (flags & OPT_R)
-	{
-		while (s->next != NULL)
-			s = s->next;
-		while (s->prev != NULL)
-		{
-			ft_putendl(s->s);
-			s = s->prev;
-		}
-		return (0);
-	}
+		s = opt_r(s);
 	while (s)
 	{
-		if (ft_strchr(s->s, ':') != NULL && ft_strchr(s->s, '/') != NULL)
-			ft_putchar ('\n');
-		ft_putstr(s->s);
-		ft_putchar ('\n');
-		s = s->next;
+		if ((ft_strchr(s->s, ':') != NULL && ft_strchr(s->s, '/') != NULL) || (ft_strcmp(s->s, ". :") == 0))
+		{
+			if (ft_strcmp(s->s, ". :") != 0)
+			{
+				ft_putchar ('\n');
+				ft_putstr(s->s);
+				ft_putchar ('\n');
+			}
+			nb_blocks(s);
 		}
+		else
+		{
+			ft_putstr(s->s);
+			ft_putchar ('\n');
+		}
+			s = s->next;
+			}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:35:51 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 14:13:44 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 17:16:33 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_list 	*opt_l(t_list *s)
 
 	begin = s;
 	c = 0;
-	nb_blocks(s);
 	buf = ft_strnew(15);
 	while (s)
 	{
@@ -61,6 +60,5 @@ t_list 	*opt_l(t_list *s)
 		}
 		s = s->next;
 	}
-	begin = begin->next;
-return (begin);
+	return (begin);
 }

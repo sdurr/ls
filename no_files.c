@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ret_ls.c                                           :+:      :+:    :+:   */
+/*   ft_no_files_or_directory.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 15:27:32 by sdurr            ###   ########.fr       */
+/*   Created: 2014/12/19 15:42:54 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/11 17:22:32 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
 #include "libft.h"
+#include "ft_ls.h"
 
-t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
+void		no_files(char *s)
 {
-	char c;
-
-	if (flags & OPT_A)
-	{
-		c = 125;
-		s = ft_ls(av, nb, 125);
-	}
-	else
-	{
-		c = '.';
-		s = ft_ls(av, nb, '.');
-	}
-	if (flags & OPT_R_R)
-		while (test_dir(s) == 1)
-			s = open_list(s, c);
-	if (flags & OPT_T)
-		s = opt_t(s);
-	if (flags & OPT_L)
-		s = opt_l(s);
-	return (s);
+	ft_putstr_fd("ft_ls: ", 2);
+	ft_putstr_fd(s, 2);
+	ft_putstr_fd(":", 2);
+	ft_putstr_fd(" No such file or directory\n", 2);
 }

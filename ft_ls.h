@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 13:56:17 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 17:11:01 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_list		*ret_ls(t_list *s, char **av, int flags, int nb);
 t_list		*opt_t(t_list *s); /*trie la liste en parametre avec le time*/
 t_list		*ft_ls(char **av, int nb, char c);
 t_list		*opt_l(t_list *s); /*ajoute a la string option l*/
+t_list		*opt_r(t_list *s);
 t_list		*open_list(t_list *s, char c);
 t_list		*ft_ls_read(char *av, t_list *s, char c); /*prend l'av en parametre et retoourne list chainee avec les noms de ce que contien le dossier*/
 char 		*ft_ls_path(char *file, char *name);
@@ -48,5 +49,6 @@ char		*name_owner(char *av);
 char		*ft_time(char *av);
 char		*opt_uid_time(char *tab);
 
+void		no_files(char *s);
 void		nb_blocks(t_list *s);
 #endif

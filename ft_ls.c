@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 17:41:36 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 14:26:48 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/11 17:42:59 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,16 @@ t_list		*ft_ls(char **av, int nb, char c)
 		s = ft_ls_read(".", s, c);
 	else
 	{
+		while (av[nb] != NULL)
+		{
 		if (av[nb][0] != '/')
 			av[nb] = ft_strjoin("./", av[nb]);
-		while (av[nb])
-			s = ft_ls_read(av[nb++], s, c);
+			if (test_open(av[nb]) == 0)
+				no_files(av[nb]);
+			else
+				s = ft_ls_read(av[nb], s, c);
+			nb++;
+		}
 	}
-	ft_putstr(s->s);
 	return (s);
 }
