@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 13:08:07 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 14:07:18 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 15:57:42 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ char *perm(char *tmp, struct stat sb)
 		tmp = ft_strjoin(tmp, "-");
 	return (tmp);
 }
-
 
 char		*ft_permission(char *tab)
 {

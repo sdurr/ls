@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:35:51 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 17:16:33 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 15:49:00 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ t_list 	*opt_l(t_list *s)
 	while (s)
 	{
 		if (ft_strchr(s->s, ':') != NULL)
-		{
-							s = s->next;
-		}
-			if ((stat(s->path, &sb)) == -1)
+			s = s->next;
+		if ((lstat(s->path, &sb)) == -1)
 			s = s->next;
 		buf = ft_strdup(ft_permission(s->path));
 		c = ft_count_sous_dossiers(s->path);
@@ -46,7 +44,7 @@ t_list 	*opt_l(t_list *s)
 			buf = ft_strjoin(buf, "  ");
 		else
 			buf = ft_strjoin(buf, " ");
-		buf = ft_strjoin(buf, ft_itoa(c));
+//		buf = ft_strjoin(buf, ft_itoa(c));
 		buf = ft_strjoin(buf, opt_uid_time(s->path));
 		if (lstat(s->s, &sb) != -1)
 			link = ft_strdup(s->s);

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 14:01:44 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 14:14:52 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ t_list		*opt_t(t_list *s)
 			s = s->next;
 		}
 	}
-	while (s->prev  != NULL)
+	s = begin;
+	while (s->next != NULL)
 	{
-		ft_putendl(s->s);
 		lstat(t->path, &first);
 		lstat(s->path, &second);
 		if (first.st_mtime > second.st_mtime)
@@ -81,7 +81,7 @@ t_list		*opt_t(t_list *s)
 			s->path = ft_strdup(path_tmp);
 		}
 		else
-			s = s->prev;
+			s = s->next;
 	}
 	return (begin);
 }

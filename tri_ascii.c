@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 11:41:01 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 16:01:24 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,23 @@ t_list		*tri_ascii(t_list *s)
 			s = s->next;
 		}
 	}
-	if (ft_strcmp(s->s, t->s) > 0)
+	s = begin;
+	while (s->next != NULL)
 	{
-		tmp = ft_strdup(t->s);
-		tmp_n = t->n;
-		path_tmp = ft_strdup(t->path);
-		t->s = ft_strdup(s->s);
-		t->n = s->n;
-		t->path = ft_strdup(s->path);
-		s->s = ft_strdup(tmp);
-		s->n = tmp_n;
-		s->path = ft_strdup(path_tmp);
+		if (ft_strcmp(s->s, t->s) > 0)
+		{
+			tmp = ft_strdup(t->s);
+			tmp_n = t->n;
+			path_tmp = ft_strdup(t->path);
+			t->s = ft_strdup(s->s);
+			t->n = s->n;
+			t->path = ft_strdup(s->path);
+			s->s = ft_strdup(tmp);
+			s->n = tmp_n;
+			s->path = ft_strdup(path_tmp);
+		}
+		else
+			s = s->next;
 	}
 	return (begin);
 }
