@@ -1,240 +1,262 @@
-Makefile
-check.c
-check_option_illegal.c
-check_option_illegal.o
-diff1
-ft_count_sous_dossiers.c
-ft_count_sous_dossiers.o
-ft_create_elem.c
-ft_create_elem.o
-ft_ls
-ft_ls.c
-ft_ls.h
-ft_ls.o
-ft_ls_path.c
-ft_ls_path.o
-ft_ls_read.c
-ft_ls_read.c~
-ft_ls_read.o
-ft_permission.c
-ft_permission.o
-ft_time.c
-ft_time.o
-l
-libft
-main.c
-main.c~
-main.o
-name_owner.c
-name_owner.o
-nb_blocks.c
-nb_blocks.o
-open_list.c
-open_list.c~
-open_list.o
-opt_l.c
-opt_l.o
-opt_t.c
-opt_t.o
-opt_uid_time.c
-opt_uid_time.o
-ret_ls.c
-ret_ls.c~
-ret_ls.o
-test
-test_dir.c
-test_dir.o
-test_open.c
-test_open.o
-test_option.c
-test_option.o
+total 512
+-rw-r--r--    1 sdurr  2014_paris   1681 Mar 12 08:48 Makefile
+-rw-r--r--    1 sdurr  2014_paris   1663 Mar 11 17:10 Makefile~
+-rw-r--r--    1 sdurr  2014_paris   1190 Mar  9 13:31 check.c
+-rwxr-xr-x    1 sdurr  2014_paris   1212 Mar  9 09:02 check_option_illegal.c
+-rw-r--r--    1 sdurr  2014_paris   1136 Mar 12 08:55 check_option_illegal.o
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 12 08:56 diff1
+-rw-r--r--    1 sdurr  2014_paris  12402 Mar 11 13:51 diff2
+-rw-r--r--    1 sdurr  2014_paris   1183 Mar  9 09:56 ft_count_sous_dossiers.c
+-rw-r--r--    1 sdurr  2014_paris    880 Mar 12 08:55 ft_count_sous_dossiers.o
+-rw-r--r--    1 sdurr  2014_paris   1332 Mar 10 14:28 ft_create_elem.c
+-rw-r--r--    1 sdurr  2014_paris    904 Mar 12 08:55 ft_create_elem.o
+-rwxr-xr-x    1 sdurr  2014_paris  22896 Mar 12 08:55 ft_ls
+-rw-r--r--    1 sdurr  2014_paris   1325 Mar 11 17:42 ft_ls.c
+-rw-r--r--    1 sdurr  2014_paris   2113 Mar 12 08:49 ft_ls.h
+-rw-r--r--    1 sdurr  2014_paris   2082 Mar 11 17:11 ft_ls.h~
+-rw-r--r--    1 sdurr  2014_paris   1272 Mar 12 08:55 ft_ls.o
+-rw-r--r--    1 sdurr  2014_paris   1085 Mar 10 14:41 ft_ls_path.c
+-rw-r--r--    1 sdurr  2014_paris    868 Mar 12 08:55 ft_ls_path.o
+-rw-r--r--    1 sdurr  2014_paris   1440 Mar 12 08:55 ft_ls_read.c
+-rw-r--r--    1 sdurr  2014_paris   1460 Mar 12 08:46 ft_ls_read.c~
+-rw-r--r--    1 sdurr  2014_paris   1464 Mar 12 08:55 ft_ls_read.o
+-rw-r--r--    1 sdurr  2014_paris   2331 Mar 11 14:07 ft_permission.c
+-rw-r--r--    1 sdurr  2014_paris   2608 Mar 12 08:55 ft_permission.o
+-rw-r--r--    1 sdurr  2014_paris   1249 Mar  9 10:12 ft_time.c
+-rw-r--r--    1 sdurr  2014_paris   1132 Mar 12 08:55 ft_time.o
+lrwxr-xr-x    1 sdurr  2014_paris   1559 Mar 11 17:20 l -> main.c
+drwxr-xr-x  134 sdurr  2014_paris   4556 Mar 12 08:40 libft
+-rw-r--r--    1 sdurr  2014_paris   1559 Mar 11 17:20 main.c
+-rw-r--r--    1 sdurr  2014_paris   1528 Mar 12 08:55 main.o
+-rw-r--r--    1 sdurr  2014_paris   1789 Mar  9 10:06 name_owner.c
+-rw-r--r--    1 sdurr  2014_paris   1848 Mar 12 08:55 name_owner.o
+-rw-r--r--    1 sdurr  2014_paris   1213 Mar 11 15:40 nb_blocks.c
+-rw-r--r--    1 sdurr  2014_paris   1160 Mar 12 08:55 nb_blocks.o
+-rw-r--r--    1 sdurr  2014_paris   1082 Mar 11 17:22 no_files.c
+-rw-r--r--    1 sdurr  2014_paris   1000 Mar 12 08:55 no_files.o
+-rw-r--r--    1 sdurr  2014_paris   1472 Mar 11 13:49 open_list.c
+-rw-r--r--    1 sdurr  2014_paris   1040 Mar 12 08:55 open_list.o
+-rw-r--r--    1 sdurr  2014_paris   1942 Mar 11 17:16 opt_l.c
+-rw-r--r--    1 sdurr  2014_paris   2152 Mar 12 08:55 opt_l.o
+-rw-r--r--    1 sdurr  2014_paris   1422 Mar 11 16:20 opt_r.c
+-rw-r--r--    1 sdurr  2014_paris    976 Mar 12 08:55 opt_r.o
+-rw-r--r--    1 sdurr  2014_paris   2141 Mar 12 08:54 opt_t.c
+-rw-r--r--    1 sdurr  2014_paris   2141 Mar 12 08:46 opt_t.c~
+-rw-r--r--    1 sdurr  2014_paris   1704 Mar 12 08:55 opt_t.o
+-rw-r--r--    1 sdurr  2014_paris   1126 Mar  9 10:08 opt_uid_time.c
+-rw-r--r--    1 sdurr  2014_paris   1056 Mar 12 08:55 opt_uid_time.o
+-rw-r--r--    1 sdurr  2014_paris   1291 Mar 12 08:55 ret_ls.c
+-rw-r--r--    1 sdurr  2014_paris   1272 Mar 11 15:27 ret_ls.c~
+-rw-r--r--    1 sdurr  2014_paris   1100 Mar 12 08:55 ret_ls.o
+drwxrwxrwx    7 sdurr  2014_paris    238 Mar 11 11:49 test
+-rw-r--r--    1 sdurr  2014_paris   1115 Mar 11 13:57 test_dir.c
+-rw-r--r--    1 sdurr  2014_paris    748 Mar 12 08:55 test_dir.o
+-rw-r--r--    1 sdurr  2014_paris   1059 Mar 10 09:41 test_open.c
+-rw-r--r--    1 sdurr  2014_paris    752 Mar 12 08:55 test_open.o
+-rw-r--r--    1 sdurr  2014_paris   1607 Mar  9 13:36 test_option.c
+-rw-r--r--    1 sdurr  2014_paris   1232 Mar 12 08:55 test_option.o
+-rw-r--r--    1 sdurr  2014_paris   1981 Mar 12 08:51 tri_ascii.c
+-rw-r--r--    1 sdurr  2014_paris   2141 Mar 12 08:50 tri_ascii.c~
+-rw-r--r--    1 sdurr  2014_paris   1468 Mar 12 08:55 tri_ascii.o
 
-./libft:
-Makefile
-ft_atoi.c
-ft_atoi.o
-ft_bzero.c
-ft_bzero.o
-ft_copy_tmp.c
-ft_copy_tmp.o
-ft_count_char.c
-ft_count_char.o
-ft_isalnum.c
-ft_isalnum.o
-ft_isalpha.c
-ft_isalpha.o
-ft_isascii.c
-ft_isascii.o
-ft_isdigit.c
-ft_isdigit.o
-ft_isprint.c
-ft_isprint.o
-ft_itoa.c
-ft_itoa.o
-ft_last_line.c
-ft_last_line.o
-ft_long_int.c
-ft_long_int.o
-ft_long_long.c
-ft_long_long.o
-ft_lstadd.c
-ft_lstdel.c
-ft_lstdelone.c
-ft_lstiter.c
-ft_lstmap.c
-ft_memalloc.c
-ft_memalloc.o
-ft_memccpy.c
-ft_memccpy.o
-ft_memchr.c
-ft_memchr.o
-ft_memcmp.c
-ft_memcmp.o
-ft_memcpy.c
-ft_memcpy.o
-ft_memdel.c
-ft_memdel.o
-ft_memmove.c
-ft_memmove.o
-ft_memset.c
-ft_memset.o
-ft_putchar.c
-ft_putchar.o
-ft_putchar_fd.c
-ft_putchar_fd.o
-ft_putendl.c
-ft_putendl.o
-ft_putendl_fd.c
-ft_putendl_fd.o
-ft_putnbr.c
-ft_putnbr.o
-ft_putnbr_fd.c
-ft_putnbr_fd.o
-ft_putstr.c
-ft_putstr.o
-ft_putstr_fd.c
-ft_putstr_fd.o
-ft_revers.c
-ft_revers.o
-ft_split_s.c
-ft_split_s.o
-ft_strcat.c
-ft_strcat.o
-ft_strchr.c
-ft_strchr.o
-ft_strclr.c
-ft_strclr.o
-ft_strcmp.c
-ft_strcmp.o
-ft_strcpy.c
-ft_strcpy.o
-ft_strdel.c
-ft_strdel.o
-ft_strdup.c
-ft_strdup.o
-ft_strequ.c
-ft_strequ.o
-ft_striter.c
-ft_striter.o
-ft_striteri.c
-ft_striteri.o
-ft_strjoin.c
-ft_strjoin.o
-ft_strlcat.c
-ft_strlcat.o
-ft_strlen.c
-ft_strlen.o
-ft_strmap.c
-ft_strmap.o
-ft_strmapi.c
-ft_strmapi.o
-ft_strncat.c
-ft_strncat.o
-ft_strncmp.c
-ft_strncmp.o
-ft_strncpy.c
-ft_strncpy.o
-ft_strnequ.c
-ft_strnequ.o
-ft_strnew.c
-ft_strnew.o
-ft_strnstr.c
-ft_strnstr.o
-ft_strrchr.c
-ft_strrchr.o
-ft_strsplit.c
-ft_strsplit.o
-ft_strstr.c
-ft_strstr.o
-ft_strsub.c
-ft_strsub.o
-ft_strtrim.c
-ft_strtrim.o
-ft_tolower.c
-ft_tolower.o
-ft_toupper.c
-ft_toupper.o
-ft_word_long.c
-ft_word_long.o
-get_next_line.c
-get_next_line.h
-get_next_line.o
-includes
-libft.a
-libft.h
+./libft :
+total 1160
+-rwxr-xr-x    1 sdurr  2014_paris   1248 Mar  9 08:40 ft_atoi.c
+-rw-r--r--    1 sdurr  2014_paris   1000 Mar 12 08:40 ft_atoi.o
+-rwxr-xr-x    1 sdurr  2014_paris   1070 Mar  9 08:40 ft_bzero.c
+-rw-r--r--    1 sdurr  2014_paris    756 Mar 12 08:40 ft_bzero.o
+-rwxr-xr-x    1 sdurr  2014_paris   1076 Mar  9 08:40 ft_copy_tmp.c
+-rw-r--r--    1 sdurr  2014_paris    808 Mar 12 08:40 ft_copy_tmp.o
+-rwxr-xr-x    1 sdurr  2014_paris   1132 Mar  9 08:40 ft_count_char.c
+-rw-r--r--    1 sdurr  2014_paris    908 Mar 12 08:40 ft_count_char.o
+-rwxr-xr-x    1 sdurr  2014_paris   1054 Mar  9 08:40 ft_isalnum.c
+-rw-r--r--    1 sdurr  2014_paris    752 Mar 12 08:40 ft_isalnum.o
+-rwxr-xr-x    1 sdurr  2014_paris   1016 Mar  9 08:40 ft_isalpha.c
+-rw-r--r--    1 sdurr  2014_paris    728 Mar 12 08:40 ft_isalpha.o
+-rwxr-xr-x    1 sdurr  2014_paris    983 Mar  9 08:40 ft_isascii.c
+-rw-r--r--    1 sdurr  2014_paris    704 Mar 12 08:40 ft_isascii.o
+-rwxr-xr-x    1 sdurr  2014_paris    984 Mar  9 08:40 ft_isdigit.c
+-rw-r--r--    1 sdurr  2014_paris    704 Mar 12 08:40 ft_isdigit.o
+-rwxr-xr-x    1 sdurr  2014_paris    981 Mar  9 08:40 ft_isprint.c
+-rw-r--r--    1 sdurr  2014_paris    704 Mar 12 08:40 ft_isprint.o
+-rwxr-xr-x    1 sdurr  2014_paris   1351 Mar  9 08:40 ft_itoa.c
+-rw-r--r--    1 sdurr  2014_paris   1268 Mar 12 08:40 ft_itoa.o
+-rwxr-xr-x    1 sdurr  2014_paris   1122 Mar  9 08:40 ft_last_line.c
+-rw-r--r--    1 sdurr  2014_paris    852 Mar 12 08:40 ft_last_line.o
+-rwxr-xr-x    1 sdurr  2014_paris   1041 Mar  9 08:40 ft_long_int.c
+-rw-r--r--    1 sdurr  2014_paris    752 Mar 12 08:40 ft_long_int.o
+-rwxr-xr-x    1 sdurr  2014_paris   1045 Mar  9 08:40 ft_long_long.c
+-rw-r--r--    1 sdurr  2014_paris    780 Mar 12 08:40 ft_long_long.o
+-rwxr-xr-x    1 sdurr  2014_paris   1013 Mar  9 08:40 ft_lstadd.c
+-rwxr-xr-x    1 sdurr  2014_paris   1117 Mar  9 08:40 ft_lstdel.c
+-rwxr-xr-x    1 sdurr  2014_paris   1125 Mar  9 08:40 ft_lstdelone.c
+-rwxr-xr-x    1 sdurr  2014_paris   1044 Mar  9 08:40 ft_lstiter.c
+-rwxr-xr-x    1 sdurr  2014_paris   1337 Mar  9 08:40 ft_lstmap.c
+-rwxr-xr-x    1 sdurr  2014_paris   1176 Mar  9 08:40 ft_memalloc.c
+-rw-r--r--    1 sdurr  2014_paris    840 Mar 12 08:40 ft_memalloc.o
+-rwxr-xr-x    1 sdurr  2014_paris   1209 Mar  9 08:40 ft_memccpy.c
+-rw-r--r--    1 sdurr  2014_paris    864 Mar 12 08:40 ft_memccpy.o
+-rwxr-xr-x    1 sdurr  2014_paris   1193 Mar  9 08:40 ft_memchr.c
+-rw-r--r--    1 sdurr  2014_paris    828 Mar 12 08:40 ft_memchr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1203 Mar  9 08:40 ft_memcmp.c
+-rw-r--r--    1 sdurr  2014_paris    820 Mar 12 08:40 ft_memcmp.o
+-rwxr-xr-x    1 sdurr  2014_paris   1202 Mar  9 08:40 ft_memcpy.c
+-rw-r--r--    1 sdurr  2014_paris    884 Mar 12 08:40 ft_memcpy.o
+-rwxr-xr-x    1 sdurr  2014_paris   1013 Mar  9 08:40 ft_memdel.c
+-rw-r--r--    1 sdurr  2014_paris    740 Mar 12 08:40 ft_memdel.o
+-rwxr-xr-x    1 sdurr  2014_paris   1299 Mar  9 08:40 ft_memmove.c
+-rw-r--r--    1 sdurr  2014_paris    952 Mar 12 08:40 ft_memmove.o
+-rwxr-xr-x    1 sdurr  2014_paris   1072 Mar  9 08:40 ft_memset.c
+-rw-r--r--    1 sdurr  2014_paris    740 Mar 12 08:40 ft_memset.o
+-rwxr-xr-x    1 sdurr  2014_paris    960 Mar  9 08:40 ft_putchar.c
+-rw-r--r--    1 sdurr  2014_paris    720 Mar 12 08:40 ft_putchar.o
+-rwxr-xr-x    1 sdurr  2014_paris    972 Mar  9 08:40 ft_putchar_fd.c
+-rw-r--r--    1 sdurr  2014_paris    732 Mar 12 08:40 ft_putchar_fd.o
+-rwxr-xr-x    1 sdurr  2014_paris   1002 Mar  9 08:40 ft_putendl.c
+-rw-r--r--    1 sdurr  2014_paris    752 Mar 12 08:40 ft_putendl.o
+-rwxr-xr-x    1 sdurr  2014_paris   1027 Mar  9 08:40 ft_putendl_fd.c
+-rw-r--r--    1 sdurr  2014_paris    772 Mar 12 08:40 ft_putendl_fd.o
+-rwxr-xr-x    1 sdurr  2014_paris   1162 Mar  9 08:40 ft_putnbr.c
+-rw-r--r--    1 sdurr  2014_paris    888 Mar 12 08:40 ft_putnbr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1222 Mar  9 08:40 ft_putnbr_fd.c
+-rw-r--r--    1 sdurr  2014_paris    916 Mar 12 08:40 ft_putnbr_fd.o
+-rwxr-xr-x    1 sdurr  2014_paris   1017 Mar  9 08:40 ft_putstr.c
+-rw-r--r--    1 sdurr  2014_paris    744 Mar 12 08:40 ft_putstr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1036 Mar  9 08:40 ft_putstr_fd.c
+-rw-r--r--    1 sdurr  2014_paris    764 Mar 12 08:40 ft_putstr_fd.o
+-rwxr-xr-x    1 sdurr  2014_paris   1146 Mar  9 08:40 ft_revers.c
+-rw-r--r--    1 sdurr  2014_paris    856 Mar 12 08:40 ft_revers.o
+-rwxr-xr-x    1 sdurr  2014_paris   1404 Mar  9 08:40 ft_split_s.c
+-rw-r--r--    1 sdurr  2014_paris   1232 Mar 12 08:40 ft_split_s.o
+-rwxr-xr-x    1 sdurr  2014_paris   1217 Mar  9 08:40 ft_strcat.c
+-rw-r--r--    1 sdurr  2014_paris    868 Mar 12 08:40 ft_strcat.o
+-rwxr-xr-x    1 sdurr  2014_paris   1099 Mar  9 08:40 ft_strchr.c
+-rw-r--r--    1 sdurr  2014_paris    812 Mar 12 08:40 ft_strchr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1036 Mar  9 08:40 ft_strclr.c
+-rw-r--r--    1 sdurr  2014_paris    776 Mar 12 08:40 ft_strclr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1074 Mar  9 08:40 ft_strcmp.c
+-rw-r--r--    1 sdurr  2014_paris    772 Mar 12 08:40 ft_strcmp.o
+-rwxr-xr-x    1 sdurr  2014_paris   1131 Mar  9 08:40 ft_strcpy.c
+-rw-r--r--    1 sdurr  2014_paris    796 Mar 12 08:40 ft_strcpy.o
+-rwxr-xr-x    1 sdurr  2014_paris   1005 Mar  9 08:40 ft_strdel.c
+-rw-r--r--    1 sdurr  2014_paris    720 Mar 12 08:40 ft_strdel.o
+-rwxr-xr-x    1 sdurr  2014_paris   1212 Mar  9 08:40 ft_strdup.c
+-rw-r--r--    1 sdurr  2014_paris    888 Mar 12 08:40 ft_strdup.o
+-rwxr-xr-x    1 sdurr  2014_paris   1306 Mar  9 08:40 ft_strequ.c
+-rw-r--r--    1 sdurr  2014_paris    948 Mar 12 08:40 ft_strequ.o
+-rwxr-xr-x    1 sdurr  2014_paris   1035 Mar  9 08:40 ft_striter.c
+-rw-r--r--    1 sdurr  2014_paris    768 Mar 12 08:40 ft_striter.o
+-rwxr-xr-x    1 sdurr  2014_paris   1055 Mar  9 08:40 ft_striteri.c
+-rw-r--r--    1 sdurr  2014_paris    776 Mar 12 08:40 ft_striteri.o
+-rwxr-xr-x    1 sdurr  2014_paris   1336 Mar  9 08:40 ft_strjoin.c
+-rw-r--r--    1 sdurr  2014_paris   1044 Mar 12 08:40 ft_strjoin.o
+-rwxr-xr-x    1 sdurr  2014_paris   1446 Mar  9 08:40 ft_strlcat.c
+-rw-r--r--    1 sdurr  2014_paris   1020 Mar 12 08:40 ft_strlcat.o
+-rwxr-xr-x    1 sdurr  2014_paris   1031 Mar  9 08:40 ft_strlen.c
+-rw-r--r--    1 sdurr  2014_paris    716 Mar 12 08:40 ft_strlen.o
+-rwxr-xr-x    1 sdurr  2014_paris   1229 Mar  9 08:40 ft_strmap.c
+-rw-r--r--    1 sdurr  2014_paris    964 Mar 12 08:40 ft_strmap.o
+-rwxr-xr-x    1 sdurr  2014_paris   1252 Mar  9 08:40 ft_strmapi.c
+-rw-r--r--    1 sdurr  2014_paris    924 Mar 12 08:40 ft_strmapi.o
+-rwxr-xr-x    1 sdurr  2014_paris   1192 Mar  9 08:40 ft_strncat.c
+-rw-r--r--    1 sdurr  2014_paris    896 Mar 12 08:40 ft_strncat.o
+-rwxr-xr-x    1 sdurr  2014_paris   1219 Mar  9 08:40 ft_strncmp.c
+-rw-r--r--    1 sdurr  2014_paris    912 Mar 12 08:40 ft_strncmp.o
+-rwxr-xr-x    1 sdurr  2014_paris   1172 Mar  9 08:40 ft_strncpy.c
+-rw-r--r--    1 sdurr  2014_paris    904 Mar 12 08:40 ft_strncpy.o
+-rwxr-xr-x    1 sdurr  2014_paris   1226 Mar  9 08:40 ft_strnequ.c
+-rw-r--r--    1 sdurr  2014_paris    912 Mar 12 08:40 ft_strnequ.o
+-rwxr-xr-x    1 sdurr  2014_paris   1139 Mar  9 08:40 ft_strnew.c
+-rw-r--r--    1 sdurr  2014_paris    820 Mar 12 08:40 ft_strnew.o
+-rwxr-xr-x    1 sdurr  2014_paris   1275 Mar  9 08:40 ft_strnstr.c
+-rw-r--r--    1 sdurr  2014_paris   1016 Mar 12 08:40 ft_strnstr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1207 Mar  9 08:40 ft_strrchr.c
+-rw-r--r--    1 sdurr  2014_paris    972 Mar 12 08:40 ft_strrchr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1354 Mar  9 08:40 ft_strsplit.c
+-rw-r--r--    1 sdurr  2014_paris   1164 Mar 12 08:40 ft_strsplit.o
+-rwxr-xr-x    1 sdurr  2014_paris   1267 Mar  9 08:40 ft_strstr.c
+-rw-r--r--    1 sdurr  2014_paris    916 Mar 12 08:40 ft_strstr.o
+-rwxr-xr-x    1 sdurr  2014_paris   1341 Mar  9 08:40 ft_strsub.c
+-rw-r--r--    1 sdurr  2014_paris   1008 Mar 12 08:40 ft_strsub.o
+-rwxr-xr-x    1 sdurr  2014_paris   1402 Mar  9 08:40 ft_strtrim.c
+-rw-r--r--    1 sdurr  2014_paris   1260 Mar 12 08:40 ft_strtrim.o
+-rwxr-xr-x    1 sdurr  2014_paris    989 Mar  9 08:40 ft_tolower.c
+-rw-r--r--    1 sdurr  2014_paris    704 Mar 12 08:40 ft_tolower.o
+-rwxr-xr-x    1 sdurr  2014_paris    989 Mar  9 08:40 ft_toupper.c
+-rw-r--r--    1 sdurr  2014_paris    704 Mar 12 08:40 ft_toupper.o
+-rwxr-xr-x    1 sdurr  2014_paris   1072 Mar  9 08:40 ft_word_long.c
+-rw-r--r--    1 sdurr  2014_paris    820 Mar 12 08:40 ft_word_long.o
+-rwxr-xr-x    1 sdurr  2014_paris   1911 Mar  9 08:40 get_next_line.c
+-rwxr-xr-x    1 sdurr  2014_paris   1018 Mar  9 08:40 get_next_line.h
+-rw-r--r--    1 sdurr  2014_paris   1800 Mar 12 08:40 get_next_line.o
+drwxr-xr-x    4 sdurr  2014_paris    136 Mar  9 08:40 includes
+-rw-r--r--    1 sdurr  2014_paris  60496 Mar 12 08:40 libft.a
+-rwxr-xr-x    1 sdurr  2014_paris   3532 Mar  9 08:40 libft.h
+-rwxr-xr-x    1 sdurr  2014_paris   2588 Mar  9 08:40 Makefile
 
-./libft/includes:
-get_next_line.h
-libft.h
+./test :
+total 0
+drwxr-xr-x    2 sdurr  2014_paris     68 Mar 11 11:45 4
+drwxr-xr-x    4 sdurr  2014_paris    136 Mar 11 11:44 blabla
+drwxr-xr-x    2 sdurr  2014_paris     68 Mar 11 11:45 k
+-rw-r--r--    1 sdurr  2014_paris      0 Mar  9 08:40 ls.c
+drwxr-xr-x    6 sdurr  2014_paris    204 Mar 10 09:45 test1
 
-./test:
-4
-blabla
-k
-ls.c
-test1
+./libft/includes :
+total 16
+-rw-r--r--    1 sdurr  2014_paris   1018 Mar  9 08:40 get_next_line.h
+-rwxr-xr-x    1 sdurr  2014_paris   3452 Mar  9 08:40 libft.h
 
-./test/4:
+./test/4 :
+total 0
 
-./test/blabla:
-d
-f
+drwxr-xr-x    4 sdurr  2014_paris    136 Mar 11 11:44 ./test/blabla :
+total 0
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 11 11:44 d
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 11 11:44 f
 
-./test/k:
+./test/k :
+total 0
 
-./test/test1:
-1
-2
-3
-test2
+drwxr-xr-x    6 sdurr  2014_paris    204 Mar 10 09:45 ./test/test1 :
+total 0
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:44 1
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:44 2
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:44 3
+drwxr-xr-x    7 sdurr  2014_paris    238 Mar 10 15:06 test2
 
-./test/test1/test2:
-4
-5
-6
-dossier
-teest3
+./test/test1/test2 :
+total 0
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:45 4
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:45 5
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:45 6
+drwxr-xr-x    4 sdurr  2014_paris    136 Mar 10 15:06 dossier
+drwxr-xr-x    5 sdurr  2014_paris    170 Mar 10 09:45 teest3
 
-./test/test1/test2/dossier:
-do
-dossier3
+./test/test1/test2/dossier :
+total 0
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 15:06 do
+drwxr-xr-x    4 sdurr  2014_paris    136 Mar 10 15:06 dossier3
 
-./test/test1/test2/dossier/dossier3:
-dossier4
-jghdf
+./test/test1/test2/teest3 :
+total 0
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:45 7
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:45 8
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 09:45 9
 
-./test/test1/test2/dossier/dossier3/dossier4:
-dossier5
-h
-j
-k
-l
-o
+./test/test1/test2/dossier/dossier3 :
+total 0
+drwxr-xr-x    7 sdurr  2014_paris    238 Mar 11 15:25 dossier4
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 15:06 jghdf
 
-./test/test1/test2/dossier/dossier3/dossier4/dossier5:
-j
+./test/test1/test2/dossier/dossier3/dossier4 :
+total 0
+drwxr-xr-x    3 sdurr  2014_paris    102 Mar 11 12:09 dossier5
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 15:07 h
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 15:07 j
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 15:07 k
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 10 15:07 o
 
-./test/test1/test2/teest3:
-7
-8
-9
+./test/test1/test2/dossier/dossier3/dossier4/dossier5 :
+total 0
+-rw-r--r--    1 sdurr  2014_paris      0 Mar 11 12:09 j

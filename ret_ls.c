@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/11 15:27:32 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 08:55:25 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
 		c = '.';
 		s = ft_ls(av, nb, '.');
 	}
+	s = tri_ascii(s);
 	if (flags & OPT_R_R)
 		while (test_dir(s) == 1)
 			s = open_list(s, c);
