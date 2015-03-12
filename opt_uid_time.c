@@ -6,13 +6,12 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/19 18:11:31 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 10:08:11 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 11:44:24 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
-
 
 char 	*opt_uid_time(char *tab)
 {

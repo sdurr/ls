@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 08:51:37 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 11:41:01 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 t_list		*tri_ascii(t_list *s)
 {
-	t_list *t;
-	char  *tmp;
-	int tmp_n;
-	t_list *begin;
-	char *path_tmp;
+	t_list		*t;
+	char		*tmp;
+	int			tmp_n;
+	t_list		*begin;
+	char		*path_tmp;
 
 	begin = s;
 	t = s;
@@ -60,16 +60,16 @@ t_list		*tri_ascii(t_list *s)
 		}
 	}
 	if (ft_strcmp(s->s, t->s) > 0)
-		{
-			tmp = ft_strdup(t->s);
-			tmp_n = t->n;
-			path_tmp = ft_strdup(t->path);
-			t->s = ft_strdup(s->s);
-			t->n = s->n;
-			t->path = ft_strdup(s->path);
-			s->s = ft_strdup(tmp);
-			s->n = tmp_n;
-			s->path = ft_strdup(path_tmp);
-		}
+	{
+		tmp = ft_strdup(t->s);
+		tmp_n = t->n;
+		path_tmp = ft_strdup(t->path);
+		t->s = ft_strdup(s->s);
+		t->n = s->n;
+		t->path = ft_strdup(s->path);
+		s->s = ft_strdup(tmp);
+		s->n = tmp_n;
+		s->path = ft_strdup(path_tmp);
+	}
 	return (begin);
 }

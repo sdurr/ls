@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 09:01:37 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 11:46:39 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 t_list		*opt_t(t_list *s)
 {
-	struct stat first;
-	struct stat second;
-	t_list *t;
-	char  *tmp;
-	int tmp_n;
-	t_list *begin;
-	char *path_tmp;
+	struct	stat	first;
+	struct	stat	second;
+	t_list	*t;
+	char	*tmp;
+	int		tmp_n;
+	t_list	*begin;
+	char	*path_tmp;
 
 	begin = s;
 	t = s;
@@ -32,7 +32,6 @@ t_list		*opt_t(t_list *s)
 	t = t->next;
 	while (s->next != NULL)
 	{
-
 		if (s->n == 2)
 		{
 			s = s->next;
@@ -40,11 +39,11 @@ t_list		*opt_t(t_list *s)
 		}
 		while (s->n != 2 && s->next != NULL)
 		{
-			while (t->next != NULL && t->n != 2)
+			while (t->n != 2 && t->next != NULL)
 			{
 				lstat(t->path, &first);
 				lstat(s->path, &second);
-				if (first.st_mtime < second.st_mtime)
+				if (first.st_mtime > second.st_mtime)
 				{
 					tmp = ft_strdup(t->s);
 					tmp_n = t->n;
@@ -61,14 +60,15 @@ t_list		*opt_t(t_list *s)
 			}
 			t = s;
 			t = t->next;
-			s = s->next;
+					s = s->next;
 		}
 	}
-	if (lstat(t->path, &first) == -1)
-		return (NULL);
-	if (lstat(s->path, &second) == -1)
-		return (NULL);
-	if (first.st_mtime < second.st_mtime)
+	t = t->prev;
+	while (t->n != 2 && t->prev  != NULL)
+	{
+		lstat(t->path, &first);
+		lstat(s->path, &second);
+		if (first.st_mtime < second.st_mtime)
 		{
 			tmp = ft_strdup(t->s);
 			tmp_n = t->n;
@@ -80,5 +80,8 @@ t_list		*opt_t(t_list *s)
 			s->n = tmp_n;
 			s->path = ft_strdup(path_tmp);
 		}
+		else
+			t = t->prev;
+	}
 	return (begin);
 }

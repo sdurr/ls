@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 08:49:27 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 09:32:03 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char 		*ft_ls_path(char *file, char *name);
 int			test_dir(t_list *s);
 int			check_option_illegal(char *argv);
 int			test_open(char *s);
+int			test_perm(char *s);
 int			test_option(char **argv, int i, int j, int *nb);
 
 char		*ft_permission(char *tab);

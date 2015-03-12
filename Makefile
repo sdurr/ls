@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/17 09:02:37 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/12 08:48:58 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/12 09:31:38 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,6 +14,7 @@ NAME		= ft_ls
 
 SRC			= main.c \
 				no_files.c \
+				test_perm.c \
 				tri_ascii.c \
 				ft_create_elem.c \
 				ft_ls_read.c \

@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ret_ls.c                                           :+:      :+:    :+:   */
+/*   test_perm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 11:44:04 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/12 09:32:12 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/12 11:41:24 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+#include <sys/stat.h>
+#include <errno.h>
 #include "libft.h"
 
-t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
+int			test_perm(char *s)
 {
-	char c;
+	struct stat sb;
 
-	if (flags & OPT_A)
-	{
-		c = 125;
-		s = ft_ls(av, nb, 125);
-	}
+	stat(s, &sb);
+	if (sb.st_mode & S_IROTH)
+		return (1);
 	else
 	{
-		c = '.';
-		s = ft_ls(av, nb, '.');
+		ft_putstr_fd("./ft_ls: ", 2);
+		s++;
+		s++;
+		ft_putstr_fd(s, 2);
+		ft_putstr_fd(": Permission denied\n", 2);
+		return (0);
 	}
-	s = tri_ascii(s);
-	if (flags & OPT_R_R)
-		while (test_dir(s) == 1)
-			s = open_list(s, c);
-	if (flags & OPT_T)
-		s = opt_t(s);
-	if (flags & OPT_L)
-		s = opt_l(s);
-	if (flags & OPT_R)
-		s = opt_r(s);
-	return (s);
 }
