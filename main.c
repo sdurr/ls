@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 11:51:33 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 13:45:03 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,64 @@ int		main(int ac, char **av)
 		return (0);
 	if (ac > 0)
 		s = ret_ls(s, av, flags, nb);
-	while (s)
+	if (flags & OPT_R)
 	{
-		if ((ft_strchr(s->s, ':') != NULL && ft_strchr(s->s, '/') != NULL) || (ft_strcmp(s->s, ". :") == 0))
+		while (s)
 		{
-			if (ft_strcmp(s->s, ". :") != 0)
+			while (s->next != NULL)
+						s = s->next;
+			while (s->n != 2 && s->prev != NULL)
+				s = s->prev;
+			if (s->n == 2 && s->next != NULL)
 			{
-				ft_putchar ('\n');
+				if (ft_strcmp(s->s, ". :") != 0 &&  ac - nb != 2)
+				{
+					ft_putchar ('\n');
+					ft_putstr(s->s);
+					ft_putchar ('\n');
+				}
+				if (s->next != NULL)
+				{
+					nb_blocks(s);
+					s = s->next;
+				}
+			}
+			while (s->n != 2 && s->next != NULL)
+				s = s->next;
+			while (s->n != 2 && s->prev != NULL)
+			{
 				ft_putstr(s->s);
 				ft_putchar ('\n');
+				s = s->prev;
 			}
-			nb_blocks(s);
+			if (s->prev != NULL)
+				s = s->prev;
+			if (s->next == NULL)
+				return (0);
+			s->next = NULL;
 		}
+	}
 		else
 		{
-			ft_putstr(s->s);
-			ft_putchar ('\n');
+			while (s)
+			{
+				if ((ft_strchr(s->s, ':') != NULL && ft_strchr(s->s, '/') != NULL) || (ft_strcmp(s->s, ". :") == 0))
+				{
+					if (ft_strcmp(s->s, ". :") != 0)
+					{
+						ft_putchar ('\n');
+						ft_putstr(s->s);
+						ft_putchar ('\n');
+					}
+					nb_blocks(s);
+				}
+				else
+				{
+					ft_putstr(s->s);
+					ft_putchar ('\n');
+				}
+				s = s->next;
+			}
 		}
-			s = s->next;
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 11:44:04 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/12 13:26:56 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
 		s = opt_t(s);
 	if (flags & OPT_L)
 		s = opt_l(s);
-	if (flags & OPT_R)
-		s = opt_r(s);
 	return (s);
 }
