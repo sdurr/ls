@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_total_blocks.c                                  :+:      :+:    :+:   */
+/*   open_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 13:21:16 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 13:47:47 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/04 08:42:32 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/04 08:51:52 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/stat.h>
-#include "libft.h"
-#include "ft_ls.h"
+#include <dirent.h>
+#include <stdlib.h>
 
-void	nb_blocks(t_list *s)
+int		open_file(char *path)
 {
-	struct stat sb;
-	int c;
+	DIR *dirp;
 
-	c = 0;
-	s = s->next;
-	while (s->n != 2 && s->next != NULL)
-	{
-		stat(s->path, &sb);
-			c = c + sb.st_blocks;
-		s = s->next;
-	}
-	if (s->next == NULL)
-	{
-		stat(s->path, &sb);
-		c = c + sb.st_blocks;
-	}
-	ft_putstr("total ");
-	ft_putnbr(c);
-	ft_putchar ('\n');
+	if ((dirp = opendir(path)) != NULL)
+		return (1);
+	return (0);
 }

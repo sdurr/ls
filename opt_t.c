@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 14:14:52 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/13 18:26:17 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,72 +16,62 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-t_list		*opt_t(t_list *s)
+static	t_list		*end_link(t_list *s, t_list *t)
 {
-	struct	stat	first;
-	struct	stat	second;
-	t_list	*t;
-	char	*tmp;
-	int		tmp_n;
-	t_list	*begin;
-	char	*path_tmp;
+	struct stat		first;
+	struct stat		second;
+	t_list			*begin;
 
 	begin = s;
-	t = s;
-	t = t->next;
-	t = t->next;
-	while (s->next != NULL)
-	{
-		if (s->n == 2)
-		{
-			s = s->next;
-			t = t->next;
-		}
-		while (s->n != 2 && s->next != NULL)
-		{
-			while (t->n != 2 && t->next != NULL)
-			{
-				lstat(t->path, &first);
-				lstat(s->path, &second);
-				if (first.st_mtime > second.st_mtime)
-				{
-					tmp = ft_strdup(t->s);
-					tmp_n = t->n;
-					path_tmp = ft_strdup(t->path);
-					t->s = ft_strdup(s->s);
-					t->n = s->n;
-					t->path = ft_strdup(s->path);
-					s->s = ft_strdup(tmp);
-					s->n = tmp_n;
-					s->path = ft_strdup(path_tmp);
-				}
-				else
-					t = t->next;
-			}
-			t = s;
-			t = t->next;
-			s = s->next;
-		}
-	}
-	s = begin;
 	while (s->next != NULL)
 	{
 		lstat(t->path, &first);
 		lstat(s->path, &second);
 		if (first.st_mtime > second.st_mtime)
-		{
-			tmp = ft_strdup(t->s);
-			tmp_n = t->n;
-			path_tmp = ft_strdup(t->path);
-			t->s = ft_strdup(s->s);
-			t->n = s->n;
-			t->path = ft_strdup(s->path);
-			s->s = ft_strdup(tmp);
-			s->n = tmp_n;
-			s->path = ft_strdup(path_tmp);
-		}
+			s = exchange_link(s, t);
 		else
 			s = s->next;
 	}
 	return (begin);
+}
+
+t_time				stat_time(char *t_path, char *s_path)
+{
+	t_time			e;
+	struct stat		first;
+	struct stat		second;
+
+	lstat(t_path, &first);
+	lstat(s_path, &second);
+	e.first = first.st_mtime;
+	e.second = second.st_mtime;
+	return (e);
+}
+
+t_list				*opt_t(t_list *s)
+{
+	t_time			e;
+	t_list			*t;
+	t_list			*begin;
+
+	begin = s;
+	t = s;
+	while (s->next != NULL)
+	{
+		if (s->n == 2 && (s = s->next))
+			t = t->next;
+		while ((t = t->next) && s->n != 2 && s->next != NULL)
+		{
+			while (t->n != 2 && t->next != NULL)
+			{
+				e = stat_time(t->path, s->path);
+				if (e.first > e.second)
+					s = exchange_link(s, t);
+				t = t->next;
+			}
+			t = s;
+			s = s->next;
+		}
+	}
+	return (end_link(begin, t));
 }

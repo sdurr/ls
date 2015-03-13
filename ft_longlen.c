@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_total_blocks.c                                  :+:      :+:    :+:   */
+/*   ft_longlen.c                                       :+:      :+:    :+:   */
+
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 13:21:16 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 13:47:47 by sdurr            ###   ########.fr       */
+/*   Created: 2015/02/03 16:18:05 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/13 09:16:43 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/stat.h>
-#include "libft.h"
-#include "ft_ls.h"
+#include <stdlib.h>
+#include <limits.h>
 
-void	nb_blocks(t_list *s)
+long long		ft_longlen(long long l)
 {
-	struct stat sb;
-	int c;
+	long long	ret;
 
-	c = 0;
-	s = s->next;
-	while (s->n != 2 && s->next != NULL)
+	ret = 1;
+	if (l < 0)
 	{
-		stat(s->path, &sb);
-			c = c + sb.st_blocks;
-		s = s->next;
+		if (l < LONG_LONG_MIN)
+			return (12);
+		ret++;
+		l *= -1;
 	}
-	if (s->next == NULL)
-	{
-		stat(s->path, &sb);
-		c = c + sb.st_blocks;
-	}
-	ft_putstr("total ");
-	ft_putnbr(c);
-	ft_putchar ('\n');
+	while ((l /= 10) > 0)
+		ret++;
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 13:45:03 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/13 17:08:36 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		main(int ac, char **av)
 		{
 			while (s)
 			{
-				if ((ft_strchr(s->s, ':') != NULL && ft_strchr(s->s, '/') != NULL) || (ft_strcmp(s->s, ". :") == 0))
+				if (s->n == 2)
 				{
 					if (ft_strcmp(s->s, ". :") != 0)
 					{
@@ -76,7 +76,14 @@ int		main(int ac, char **av)
 						ft_putstr(s->s);
 						ft_putchar ('\n');
 					}
-					nb_blocks(s);
+					s = s->next;
+					if (s->n != 2)
+					{
+						s = s ->prev;
+						nb_blocks(s);
+					}
+					else
+						s =s->prev;
 				}
 				else
 				{

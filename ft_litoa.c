@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_total_blocks.c                                  :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 13:21:16 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 13:47:47 by sdurr            ###   ########.fr       */
+/*   Created: 2014/11/12 17:11:27 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/13 09:04:30 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/stat.h>
-#include "libft.h"
+#include <stdlib.h>
 #include "ft_ls.h"
+#include "limits.h"
 
-void	nb_blocks(t_list *s)
+char	*ft_litoa(long long n)
 {
-	struct stat sb;
-	int c;
+	char	*ret;
+	int		i;
 
-	c = 0;
-	s = s->next;
-	while (s->n != 2 && s->next != NULL)
+	i = 0;
+	if (!(ret = (char *)malloc(sizeof(char) * ft_longlen(n) + 1)))
+		return (NULL);
+	if (n < 0)
 	{
-		stat(s->path, &sb);
-			c = c + sb.st_blocks;
-		s = s->next;
+		ret[i++] = '-';
+		n *= -1;
 	}
-	if (s->next == NULL)
+	while (n >= 10 && n <= LONG_LONG_MAX)
 	{
-		stat(s->path, &sb);
-		c = c + sb.st_blocks;
+		ret[i++] = n % 10 + '0';
+		n = n / 10;
 	}
-	ft_putstr("total ");
-	ft_putnbr(c);
-	ft_putchar ('\n');
+	if (n < 10)
+		ret[i++] = n + '0';
+	ret[i] = '\0';
+	ret = ft_revers(ret);
+	return (ret);
 }

@@ -6,13 +6,15 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/17 09:02:37 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/12 09:31:38 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/13 18:27:08 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME		= ft_ls
 
 SRC			= main.c \
+				transfer.c \
+				exchange_link.c \
 				no_files.c \
 				test_perm.c \
 				tri_ascii.c \
@@ -32,7 +34,6 @@ SRC			= main.c \
 				opt_uid_time.c \
 				nb_blocks.c \
 				opt_t.c \
-				opt_r.c \
 				test_dir.c \
 				open_list.c \
 

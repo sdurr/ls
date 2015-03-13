@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 10:39:21 by sdurr             #+#    #+#             */
-/*   Updated: 2014/12/29 22:19:13 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/13 17:35:44 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		check_option_illegal(char *argv)
 {
 	ft_putstr_fd("ls: illegal option -- ", 2);
 	ft_putchar_fd(argv[1], 2);
-	ft_putstr_fd("\nusage: ls [-ABCFGHLOPRSTUWabcdefghijklmnopqrstuwx1]", 2);
-	ft_putstr_fd("[file ...]", 2);
+	ft_putstr_fd("\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1]", 2);
+	ft_putstr_fd(" [file ...]", 2);
 	ft_putchar_fd ('\n', 2);
 	return (-1);
 }

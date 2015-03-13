@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_total_blocks.c                                  :+:      :+:    :+:   */
+/*   transfer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/17 13:21:16 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 13:47:47 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/13 17:43:22 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/13 17:45:27 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/stat.h>
-#include "libft.h"
 #include "ft_ls.h"
+#include "libft.h"
 
-void	nb_blocks(t_list *s)
+t_list		*transfer(t_list *s, char *str, char *path, int n)
 {
-	struct stat sb;
-	int c;
-
-	c = 0;
-	s = s->next;
-	while (s->n != 2 && s->next != NULL)
-	{
-		stat(s->path, &sb);
-			c = c + sb.st_blocks;
-		s = s->next;
-	}
-	if (s->next == NULL)
-	{
-		stat(s->path, &sb);
-		c = c + sb.st_blocks;
-	}
-	ft_putstr("total ");
-	ft_putnbr(c);
-	ft_putchar ('\n');
+	s->s = ft_strdup(str);
+	s->n = n;
+	s->path = ft_strdup(path);
+	return (s);
 }
