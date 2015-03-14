@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 10:28:02 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 16:39:01 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/14 17:19:30 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,87 +17,69 @@
 #include <grp.h>
 #include <sys/types.h>
 
-char 	*name_owner(char *av)
+static char			*join_size(char *tmp, int c)
 {
-	struct passwd *result;
-	struct stat sb;
-	struct group *group;
-	int c;
-	char *tmp;
-	char *t;
+	tmp = ft_strjoin(tmp, "  ");
+	if (c > 999999)
+		tmp = ft_strjoin(tmp, "");
+	if (c > 99999 && c < 1000000)
+		tmp = ft_strjoin(tmp, "");
+	if (c > 9999 && c < 100000)
+		tmp = ft_strjoin(tmp, " ");
+	if (c > 999 && c < 10000)
+		tmp = ft_strjoin(tmp, "  ");
+	if (c > 99 && c < 1000)
+		tmp = ft_strjoin(tmp, "   ");
+	if (c > 9 && c < 100)
+		tmp = ft_strjoin(tmp, "    ");
+	if (c >= 0 && c < 10)
+		tmp = ft_strjoin(tmp, "     ");
+	return (tmp);
+}
 
-	t = ft_strnew(15);
+static char			*chr(struct stat sb, char *tmp)
+{
+	if (major(sb.st_rdev) < 10)
+		tmp = ft_strjoin(tmp, "  ");
+	else if (major(sb.st_rdev) < 100)
+		tmp = ft_strjoin(tmp, " ");
+	tmp = ft_strjoin(tmp, ft_itoa(major(sb.st_rdev)));
+	tmp = ft_strjoin(tmp, ",");
+	if (minor(sb.st_rdev) < 10)
+		tmp = ft_strjoin(tmp, "   ");
+	else if (minor(sb.st_rdev) < 100)
+		tmp = ft_strjoin(tmp, "  ");
+	else
+		tmp = ft_strjoin(tmp, " ");
+	tmp = ft_strjoin(tmp, ft_itoa(minor(sb.st_rdev)));
+	return (tmp);
+}
+
+char				*name_owner(char *av)
+{
+	char			*tmp;
+	struct passwd	*result;
+	struct group	*group;
+	struct stat		sb;
+
 	lstat(av, &sb);
 	result = getpwuid(sb.st_uid);
-	tmp = ft_strdup(result -> pw_name);
-	if (ft_strlen(tmp) > 4 )
-		tmp = ft_strjoin(tmp, " ");
-	else
-	tmp = ft_strjoin(tmp, "  ");
+	tmp = ft_strdup(result->pw_name);
 	group = getgrgid(sb.st_gid);
-c = sb.st_size;
-
 	if (av[0] == '/')
-	{
-		tmp = ft_strjoin(tmp, " ");
-		tmp = ft_strjoin(tmp, group -> gr_name);
-		if (ft_strcmp(group->gr_name, "wheel") == 0)
-		{
-			if (S_ISCHR(sb.st_mode))
-				tmp = ft_strjoin(tmp, "       ");
-			else if (S_ISLNK(sb.st_mode))
-				tmp = ft_strjoin(tmp, "            ");
-			else
-				tmp = ft_strjoin(tmp, "      ");
-		}
-		else if (ft_strcmp(group->gr_name, "operator") == 0)
-		{
-			if (S_ISBLK(sb.st_mode) || S_ISLNK(sb.st_mode))
-				tmp = ft_strjoin(tmp, "         ");
-			else
-				tmp = ft_strjoin(tmp, "    ");
-		}
-		else if (ft_strcmp(group->gr_name, "tty") == 0)
-		{
-			if (S_ISCHR(sb.st_mode))
-				tmp = ft_strjoin(tmp, "         ");
-			else
-				tmp = ft_strjoin(tmp, "           ");
-		}
-		else
-			tmp = ft_strjoin(tmp, "  ");
-	}
-	else
-	{
-		tmp = ft_strjoin(tmp, " ");
-		tmp = ft_strjoin(tmp, group -> gr_name);
-		if (c > 999999)
-			tmp = ft_strjoin(tmp, " ");
-		if (c > 99999 && c < 1000000)
-			tmp = ft_strjoin(tmp, " ");
-		if (c > 9999 && c < 100000)
-			tmp = ft_strjoin(tmp, "  ");
-		if (c > 999 && c < 10000)
-			tmp = ft_strjoin(tmp, "   ");
-		if (c > 99 && c < 1000)
-			tmp = ft_strjoin(tmp, "    ");
-		if (c > 9 && c < 100)
-			tmp = ft_strjoin(tmp, "     ");
-		if (c >= 0 && c < 10)
-			tmp = ft_strjoin(tmp, "      ");
-	}
+		tmp = ft_strdup(av_chr(tmp, sb, group, result));
+	tmp = ft_strjoin(tmp, "  ");
+	if (av[0] != '/')
+		tmp = ft_strjoin(tmp, group->gr_name);
+	if (av[0] != '/' || (av[0] == '/' && S_ISDIR(sb.st_mode)))
+		tmp = ft_strdup(join_size(tmp, sb.st_size));
 	if (S_ISCHR(sb.st_mode))
-	{
-		tmp = ft_strjoin(tmp, ft_itoa(major(sb.st_rdev)));
-		tmp = ft_strjoin(tmp, ", ");
-		tmp = ft_strjoin(tmp, "  ");
-		tmp = ft_strjoin(tmp, ft_itoa(minor(sb.st_rdev)));
-	}
+		tmp = ft_strdup(chr(sb, tmp));
 	else
 	{
 		if (av[0] == '/')
-			tmp = ft_strjoin(tmp, " ");
+			tmp = ft_strjoin(tmp, "  ");
 		tmp = ft_strjoin(tmp, ft_itoa(sb.st_size));
 	}
-		return (tmp);
+	return (tmp);
 }

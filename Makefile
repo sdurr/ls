@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/17 09:02:37 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/13 18:27:08 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/14 17:39:51 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,6 +14,9 @@ NAME		= ft_ls
 
 SRC			= main.c \
 				transfer.c \
+				av_chr.c \
+				print_list_opt_r.c \
+				print_list.c \
 				exchange_link.c \
 				no_files.c \
 				test_perm.c \
@@ -57,7 +60,6 @@ all		:		$(NAME)
 fclean	:		clean
 				Make -C libft fclean
 				$(RM) $(NAME)
-				$(RM) *~
 
 re		:		fclean all
 

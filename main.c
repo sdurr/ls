@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:59 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 17:08:36 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/14 14:11:53 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 int		main(int ac, char **av)
 {
 	int		flags;
-	t_list *s;
-	int nb;
+	t_list	*s;
+	int		nb;
 
 	flags = 0;
 	s = malloc(sizeof(t_list));
@@ -28,70 +28,8 @@ int		main(int ac, char **av)
 	if (ac > 0)
 		s = ret_ls(s, av, flags, nb);
 	if (flags & OPT_R)
-	{
-		while (s)
-		{
-			while (s->next != NULL)
-						s = s->next;
-			while (s->n != 2 && s->prev != NULL)
-				s = s->prev;
-			if (s->n == 2 && s->next != NULL)
-			{
-				if (ft_strcmp(s->s, ". :") != 0 &&  ac - nb != 2)
-				{
-					ft_putchar ('\n');
-					ft_putstr(s->s);
-					ft_putchar ('\n');
-				}
-				if (s->next != NULL)
-				{
-					nb_blocks(s);
-					s = s->next;
-				}
-			}
-			while (s->n != 2 && s->next != NULL)
-				s = s->next;
-			while (s->n != 2 && s->prev != NULL)
-			{
-				ft_putstr(s->s);
-				ft_putchar ('\n');
-				s = s->prev;
-			}
-			if (s->prev != NULL)
-				s = s->prev;
-			if (s->next == NULL)
-				return (0);
-			s->next = NULL;
-		}
-	}
-		else
-		{
-			while (s)
-			{
-				if (s->n == 2)
-				{
-					if (ft_strcmp(s->s, ". :") != 0)
-					{
-						ft_putchar ('\n');
-						ft_putstr(s->s);
-						ft_putchar ('\n');
-					}
-					s = s->next;
-					if (s->n != 2)
-					{
-						s = s ->prev;
-						nb_blocks(s);
-					}
-					else
-						s =s->prev;
-				}
-				else
-				{
-					ft_putstr(s->s);
-					ft_putchar ('\n');
-				}
-				s = s->next;
-			}
-		}
+		return (print_list_opt_r(s));
+	else
+		return (print_list(s));
 	return (0);
 }

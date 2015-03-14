@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 11:19:23 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/09 10:12:15 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/14 15:44:16 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,22 @@
 #include "ft_ls.h"
 #include "libft.h"
 
-char 	*ft_time(char *av)
+char		*ft_time(char *av)
 {
-	struct	stat sb;
-	time_t time;
-	char *ret;
-	int i;
-	char *tmp;
-	int j;
+	struct stat sb;
+	time_t		time;
+	char		*ret;
+	int			i[2];
+	char		*tmp;
 
 	tmp = ft_strnew(17);
-	i = 4;
-	j = 0;
+	i[0] = 4;
+	i[1] = 0;
 	stat(av, &sb);
 	time = sb.st_mtime;
-	ret =ctime(&time);
-	while (i < 16)
-		tmp[j++] = ret[i++];
+	ret = ctime(&time);
+	while (i[0] < 16)
+		tmp[i[1]++] = ret[i[0]++];
 	tmp = ft_strjoin(tmp, " ");
-return (tmp);
+	return (tmp);
 }

@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ret_ls.c                                           :+:      :+:    :+:   */
+/*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/14 17:38:53 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/14 13:30:27 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/14 14:12:12 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
+int			print_list(t_list *s)
 {
-	char c;
-
-	if (flags & OPT_A)
+	while (s)
 	{
-		c = 125;
-		s = ft_ls(av, nb, 125);
+		if (s->n == 2)
+		{
+			if (ft_strcmp(s->s, ". :") != 0)
+			{
+				ft_putchar ('\n');
+				ft_putendl(s->s);
+			}
+			s = s->next;
+			if (s->n != 2)
+			{
+				s = s->prev;
+				nb_blocks(s);
+			}
+			else
+				s = s->prev;
+		}
+		else
+			ft_putendl(s->s);
+		s = s->next;
 	}
-	else
-	{
-		c = '.';
-		s = ft_ls(av, nb, '.');
-	}
-	s = tri_ascii(s);
-	if (flags & OPT_R_R)
-		while (test_dir(s) == 1)
-			s = open_list(s, c);
-	if (flags & OPT_T)
-		s = opt_t(s);
-	if (flags & OPT_L)
-		s = opt_l(s);
-	return (s);
+	return (0);
 }

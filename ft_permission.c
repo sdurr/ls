@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 13:08:07 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 15:57:42 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/14 15:42:11 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,29 @@
 #include <stdio.h>
 #include <sys/stat.h>
 
-char *perm(char *tmp, struct stat sb)
+char		*perm_2(char *tmp, struct stat sb)
 {
+	if (sb.st_mode & S_IXGRP)
+		tmp = ft_strjoin(tmp, "x");
+	else
+		tmp = ft_strjoin(tmp, "-");
+	if (sb.st_mode & S_IROTH)
+		tmp = ft_strjoin(tmp, "r");
+	else
+		tmp = ft_strjoin(tmp, "-");
+	if (sb.st_mode & S_IWOTH)
+		tmp = ft_strjoin(tmp, "w");
+	else
+		tmp = ft_strjoin(tmp, "-");
+	if (sb.st_mode & S_IXOTH)
+		tmp = ft_strjoin(tmp, "x");
+	else
+		tmp = ft_strjoin(tmp, "-");
+	return (tmp);
+}
 
+char		*perm(char *tmp, struct stat sb)
+{
 	if (sb.st_mode & S_IRUSR)
 		tmp = ft_strjoin(tmp, "r");
 	else
@@ -40,29 +60,13 @@ char *perm(char *tmp, struct stat sb)
 		tmp = ft_strjoin(tmp, "w");
 	else
 		tmp = ft_strjoin(tmp, "-");
-	if (sb.st_mode & S_IXGRP)
-		tmp = ft_strjoin(tmp, "x");
-	else
-		tmp = ft_strjoin(tmp, "-");
-	if (sb.st_mode & S_IROTH)
-		tmp = ft_strjoin(tmp, "r");
-	else
-		tmp = ft_strjoin(tmp, "-");
-	if (sb.st_mode & S_IWOTH)
-		tmp = ft_strjoin(tmp, "w");
-	else
-		tmp = ft_strjoin(tmp, "-");
-	if (sb.st_mode & S_IXOTH)
-		tmp = ft_strjoin(tmp, "x");
-	else
-		tmp = ft_strjoin(tmp, "-");
-	return (tmp);
+	return (perm_2(tmp, sb));
 }
 
 char		*ft_permission(char *tab)
 {
-	struct stat sb;
-	char *tmp;
+	struct stat	sb;
+	char		*tmp;
 
 	lstat(tab, &sb);
 	if (S_ISREG(sb.st_mode))

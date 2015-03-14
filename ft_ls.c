@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 17:41:36 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 09:41:07 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/14 15:54:08 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ t_list		*ft_ls(char **av, int nb, char c)
 
 	s = malloc(sizeof(t_list));
 	s = NULL;
-	nb++;
-	if (!(av[nb]))
+	if (!(av[++nb]))
 		s = ft_ls_read(".", s, c);
 	else
 	{
@@ -33,12 +32,10 @@ t_list		*ft_ls(char **av, int nb, char c)
 			{
 				if (test_open(av[nb]) == 0)
 					no_files(av[nb]);
-			else
-				s = ft_ls_read(av[nb], s, c);
+				else
+					s = ft_ls_read(av[nb], s, c);
 				nb++;
 			}
-			else
-				nb++;
 		}
 	}
 	if (s == NULL)

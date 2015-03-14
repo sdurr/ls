@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:35:51 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 19:39:08 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/14 14:26:42 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,23 @@
 static char		*join_subfolder(int c, char *buf)
 {
 	if (c < 10)
-		buf = ft_strjoin(buf, "    ");
-	else if (c < 99 && c > 9)
 		buf = ft_strjoin(buf, "   ");
-	else if (c < 999 && c > 99)
+	else if (c < 99 && c > 9)
 		buf = ft_strjoin(buf, "  ");
-	else
+	else if (c < 999 && c > 99)
 		buf = ft_strjoin(buf, " ");
+	else
+		buf = ft_strjoin(buf, "");
+	return (buf);
+}
+
+static char		*link_read(char *link)
+{
+	char *buf;
+
+	buf = ft_strnew(15);
+	readlink(link, buf, 50);
+	buf = ft_strjoin(" -> ", buf);
 	return (buf);
 }
 
@@ -36,7 +46,6 @@ t_list			*opt_l(t_list *s)
 	int					c;
 	char				*buf;
 	t_list				*begin;
-	char				*link;
 
 	begin = s;
 	while (s)
@@ -48,14 +57,12 @@ t_list			*opt_l(t_list *s)
 		c = ft_count_sous_dossiers(s->path);
 		buf = join_subfolder(c, buf);
 		buf = ft_strjoin(buf, ft_strjoin(ft_itoa(c), opt_uid_time(s->path)));
-		link = ft_strdup(s->path);
 		s->s = ft_strjoin(buf, s->s);
-		if (S_ISLNK(sb.st_mode) && (buf = ft_strnew(15)))
+		buf = ft_strdup(s->path);
+		if (S_ISLNK(sb.st_mode))
 		{
 			s->n = 0;
-			s->s = ft_strjoin(s->s, " -> ");
-			readlink(link, buf, 50);
-			s->s = ft_strjoin(s->s, buf);
+			s->s = ft_strjoin(s->s, link_read(buf));
 		}
 		s = s->next;
 	}
