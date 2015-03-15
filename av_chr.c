@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 14:52:48 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/14 17:10:22 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/15 09:53:59 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*av_chr2(char *t, struct stat s, struct group *g)
 		else
 			t = ft_strjoin(t, "  ");
 	}
-	else if (ft_strlen(g->gr_name) >= 4)
+	else if (ft_strlen(g->gr_name) >= 4 && ft_strlen(g->gr_name) < 9)
 	{
 		if (S_ISCHR(s.st_mode))
 			t = ft_strjoin(t, "     ");
