@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 12:57:22 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/14 14:14:32 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/15 11:04:52 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 t_list		*print_dir(t_list *s)
 {
-	if (ft_strcmp(s->s, ". :") != 0)
+	if (s->s[0] != '/')
+	{
+		s->s++;
+		s->s++;
+	}
+	if (ft_strcmp(s->s, ":") != 0)
 	{
 		ft_putchar ('\n');
 		ft_putendl(s->s);
@@ -50,9 +55,25 @@ t_list		*print_first_link(t_list *s)
 	return (s);
 }
 
-int			print_list_opt_r(t_list *s)
+int			print_list_opt_r(t_list *s, char **av, int nb)
 {
-	s = print_first_link(s);
+	int save;
+
+	save = nb;
+	if (av[nb])
+	{
+		while (av[save])
+			save++;
+		save--;
+		while (save >= nb)
+		{
+			print_first_link(s);
+			save--;
+		}
+	}
+	else
+		s = print_first_link(s);
+
 	while (s)
 	{
 		while (s->next != NULL)
