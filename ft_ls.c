@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 17:41:36 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 15:09:28 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 15:59:50 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,25 @@ void		print_files(int flags, char *av)
 {
 	t_list *s;
 
-	s = malloc(sizeof(t_list));
-	s->s = ft_strdup(av);
-	s->path = ft_strjoin("./", av);
-	s->s += 2;
-	if (flags & OPT_L)
-		s = opt_l(s);
-	ft_putendl(s->s);
+	if (test_files(av) != NULL)
+	{
+		s = malloc(sizeof(t_list));
+		s->s = ft_strdup(av);
+		s->path = ft_strjoin("./", av);
+		s->s += 2;
+		if (flags & OPT_L)
+			s = opt_l(s);
+		ft_putendl(s->s);
+	}
+	else
+		no_files(av);
+}
+
+static char *test_av(char **av, int nb)
+{
+	if (ft_strcmp(av[nb], "") == 0)
+		return (".");
+	return (av[nb]);
 }
 
 t_list		*ft_ls(char **av, int nb, char c, int flags)
@@ -39,21 +51,16 @@ t_list		*ft_ls(char **av, int nb, char c, int flags)
 	{
 		while (av[nb] != NULL)
 		{
-			if (av[nb][0] != '/')
+			if (av[nb][0] != '/' && (av[nb] = test_av(av, nb)))
 				av[nb] = ft_strjoin("./", av[nb]);
 			if (test_perm(av[nb]) == 1)
 			{
 				if (test_open(av[nb]) == 0)
-				{
-					if (test_files(av[nb]) != NULL)
-						print_files(flags, av[nb]);
-					else
-						no_files(av[nb]);
-				}
+					print_files(flags, av[nb]);
 				else
 					s = ft_ls_read(av[nb], s, c);
-				nb++;
 			}
+			nb++;
 		}
 	}
 	if (s == NULL)

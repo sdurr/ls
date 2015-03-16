@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 10:28:02 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 13:23:19 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 15:31:23 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ static char			*chr(struct stat sb, char *tmp)
 char				*name_owner(char *av)
 {
 	char			*tmp;
-	struct passwd	*result;
-	struct group	*group;
+	t_l				l;
 	struct stat		sb;
+	t_t				t;
 
 	lstat(av, &sb);
-	result = getpwuid(sb.st_uid);
-	tmp = ft_strdup(result->pw_name);
-	group = getgrgid(sb.st_gid);
+	l.result = getpwuid(sb.st_uid);
+	tmp = ft_strdup(l.result->pw_name);
+	t.group = getgrgid(sb.st_gid);
 	if (av[0] == '/')
-		tmp = ft_strdup(av_chr(tmp, sb, group));
+		tmp = ft_strdup(av_chr(tmp, sb, t.group));
 	tmp = ft_strjoin(tmp, "  ");
 	if (av[0] != '/')
-		tmp = ft_strjoin(tmp, group->gr_name);
+		tmp = ft_strjoin(tmp, t.group->gr_name);
 	if (av[0] != '/' || (av[0] == '/' && S_ISDIR(sb.st_mode)))
 		tmp = ft_strdup(join_size(tmp, sb.st_size));
 	if (S_ISCHR(sb.st_mode))

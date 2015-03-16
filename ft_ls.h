@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 15:01:57 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 15:30:56 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ typedef struct		s_list
 	int				n;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_l
+{
+	struct passwd	*result;
+}					t_l;
+
+typedef struct		s_t
+{
+	struct group	*group;
+}					t_t;
 
 typedef struct		s_ascii
 {

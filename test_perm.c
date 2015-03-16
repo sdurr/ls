@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 09:32:12 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/12 11:41:24 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 15:50:37 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int			test_perm(char *s)
 	struct stat sb;
 
 	stat(s, &sb);
-	if (sb.st_mode & S_IROTH)
+	if (sb.st_mode & S_IROTH || s[0] == '/')
 		return (1);
 	else
 	{
-		ft_putstr_fd("./ft_ls: ", 2);
-		s++;
-		s++;
+		ft_putstr_fd("ft_ls: ", 2);
+		if (ft_strncmp(s, "./", 2) == 0)
+			s += 2;
 		ft_putstr_fd(s, 2);
 		ft_putstr_fd(": Permission denied\n", 2);
 		return (0);
