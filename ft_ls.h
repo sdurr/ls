@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/15 10:40:36 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 11:12:03 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int					check_option_illegal(char *argv);
 int					test_open(char *s);
 int					test_perm(char *s);
 int					test_option(char **argv, int i, int j, int *nb);
-int					print_list_opt_r(t_list *s, char **av, int nb);
-int					print_list(t_list *s);
+int					print_list_opt_r(t_list *s, char **av, int nb, int flags);
+int					print_list(t_list *s, int flags);
 int					ft_count_sous_dossiers(char *tab);
 
 void				no_files(char *s);

@@ -6,24 +6,22 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 13:30:27 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 08:52:20 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 11:07:22 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-int			print_list(t_list *s)
+int			print_list(t_list *s, int flags)
 {
 	while (s)
 	{
 		if (s->n == 2)
 		{
-			if (s->s[0] != '/')
-			{
-				s->s++;
-				s->s++;
-			}
+			if (!(flags & OPT_R_R))
+				if (s->s[0] != '/')
+					s->s+=2;
 			if (ft_strcmp(s->s, ":") != 0)
 			{
 				ft_putchar ('\n');

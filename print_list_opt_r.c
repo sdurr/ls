@@ -6,20 +6,18 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 12:57:22 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/15 11:04:52 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 11:12:18 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-t_list		*print_dir(t_list *s)
+t_list		*print_dir(t_list *s, int flags)
 {
-	if (s->s[0] != '/')
-	{
-		s->s++;
-		s->s++;
-	}
+	if (!(flags & OPT_R_R))
+		if (s->s[0] != '/')
+			s->s += 2;
 	if (ft_strcmp(s->s, ":") != 0)
 	{
 		ft_putchar ('\n');
@@ -55,7 +53,7 @@ t_list		*print_first_link(t_list *s)
 	return (s);
 }
 
-int			print_list_opt_r(t_list *s, char **av, int nb)
+int			print_list_opt_r(t_list *s, char **av, int nb, int flags)
 {
 	int save;
 
@@ -81,7 +79,7 @@ int			print_list_opt_r(t_list *s, char **av, int nb)
 		while (s->n != 2 && s->prev != NULL)
 			s = s->prev;
 		if (s->n == 2 && s->next != NULL)
-			s = print_dir(s);
+			s = print_dir(s, flags);
 		while (s->n != 2 && s->next != NULL)
 			s = s->next;
 		while (s->n != 2 && s->prev != NULL)
