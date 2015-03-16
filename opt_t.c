@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/13 18:26:17 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 11:38:52 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	t_list		*end_link(t_list *s, t_list *t)
 	t_list			*begin;
 
 	begin = s;
-	while (s->next != NULL)
+	while (s->n != 2 && s->next != NULL)
 	{
 		lstat(t->path, &first);
 		lstat(s->path, &second);

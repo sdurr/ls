@@ -6,19 +6,19 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 12:57:22 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 11:12:18 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 12:12:29 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-t_list		*print_dir(t_list *s, int flags)
+static t_list		*print_dir(t_list *s, int flags)
 {
 	if (!(flags & OPT_R_R))
 		if (s->s[0] != '/')
 			s->s += 2;
-	if (ft_strcmp(s->s, ":") != 0)
+	if (ft_strcmp(s->s, ":") != 0 && ft_strcmp(s->s, ". :") != 0)
 	{
 		ft_putchar ('\n');
 		ft_putendl(s->s);
@@ -31,7 +31,7 @@ t_list		*print_dir(t_list *s, int flags)
 	return (s);
 }
 
-t_list		*print_first_link(t_list *s)
+static t_list		*print_first_link(t_list *s)
 {
 	if (ft_strcmp(s->s, ". :") == 0)
 	{
@@ -53,25 +53,35 @@ t_list		*print_first_link(t_list *s)
 	return (s);
 }
 
-int			print_list_opt_r(t_list *s, char **av, int nb, int flags)
+static t_list		*print_av(t_list *s, char **av, int nb, int flags)
 {
 	int save;
 
 	save = nb;
-	if (av[nb])
+	nb++;
+	if (!(flags & OPT_R_R))
 	{
-		while (av[save])
-			save++;
-		save--;
-		while (save >= nb)
+		if (av[nb])
 		{
-			print_first_link(s);
+			while (av[save])
+				save++;
 			save--;
+			while (save >= nb)
+			{
+				print_first_link(s);
+				save--;
+			}
 		}
+		else
+			s = print_first_link(s);
 	}
-	else
-		s = print_first_link(s);
+	s = print_first_link(s);
+	return (s);
+}
 
+int					print_list_opt_r(t_list *s, char **av, int nb, int flags)
+{
+	s = print_av(s, av, nb, flags);
 	while (s)
 	{
 		while (s->next != NULL)
