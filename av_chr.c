@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 14:52:48 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/15 09:53:59 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 13:23:15 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ char		*av_chr2(char *t, struct stat s, struct group *g)
 	return (t);
 }
 
-char		*av_chr(char *t, struct stat s, struct group *g, struct passwd *r)
+char		*av_chr(char *t, struct stat s, struct group *g)
 {
-	if (ft_strlen(r->pw_name) > 4 && ft_strlen (r->pw_name) < 8)
+	int j;
+
+	j = ft_strlen(t);
+	if (j > 4 && j < 8)
 		t = ft_strjoin(t, "  ");
-	else if (ft_strlen (r->pw_name) < 8)
+	else if (j < 8)
 		t = ft_strjoin(t, "   ");
 	t = ft_strjoin(t, g->gr_name);
 	if (!(S_ISCHR(s.st_mode)))

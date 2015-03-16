@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 10:28:02 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/14 17:42:09 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 13:23:19 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char				*name_owner(char *av)
 	tmp = ft_strdup(result->pw_name);
 	group = getgrgid(sb.st_gid);
 	if (av[0] == '/')
-		tmp = ft_strdup(av_chr(tmp, sb, group, result));
+		tmp = ft_strdup(av_chr(tmp, sb, group));
 	tmp = ft_strjoin(tmp, "  ");
 	if (av[0] != '/')
 		tmp = ft_strjoin(tmp, group->gr_name);

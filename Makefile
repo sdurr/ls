@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/17 09:02:37 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/14 17:39:51 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/16 12:59:36 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,6 +20,7 @@ SRC			= main.c \
 				exchange_link.c \
 				no_files.c \
 				test_perm.c \
+				test_files.c \
 				tri_ascii.c \
 				ft_create_elem.c \
 				ft_ls_read.c \

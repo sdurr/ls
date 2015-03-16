@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 17:41:36 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/15 10:07:49 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 15:09:28 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,20 @@
 #include "libft.h"
 #include <stdio.h>
 
-t_list		*ft_ls(char **av, int nb, char c)
+void		print_files(int flags, char *av)
+{
+	t_list *s;
+
+	s = malloc(sizeof(t_list));
+	s->s = ft_strdup(av);
+	s->path = ft_strjoin("./", av);
+	s->s += 2;
+	if (flags & OPT_L)
+		s = opt_l(s);
+	ft_putendl(s->s);
+}
+
+t_list		*ft_ls(char **av, int nb, char c, int flags)
 {
 	t_list *s;
 
@@ -31,7 +44,12 @@ t_list		*ft_ls(char **av, int nb, char c)
 			if (test_perm(av[nb]) == 1)
 			{
 				if (test_open(av[nb]) == 0)
-					no_files(av[nb]);
+				{
+					if (test_files(av[nb]) != NULL)
+						print_files(flags, av[nb]);
+					else
+						no_files(av[nb]);
+				}
 				else
 					s = ft_ls_read(av[nb], s, c);
 				nb++;

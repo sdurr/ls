@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_list.c                                       :+:      :+:    :+:   */
+/*   test_files.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/14 13:30:27 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 15:00:00 by sdurr            ###   ########.fr       */
+/*   Created: 2014/12/17 09:29:47 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/16 13:36:40 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <dirent.h>
 #include "ft_ls.h"
 #include "libft.h"
+#include <stdlib.h>
 
-int			print_list(t_list *s, int flags)
+char		*test_files(char *argv)
 {
-	while (s)
-	{
-		if (s->n == 2)
-		{
-			if (!(flags & OPT_R_R) && (s->s[0] != '/'))
-				s->s += 2;
-			if (ft_strcmp(s->s, ":") != 0 && ft_strcmp(s->s, ". :"))
-			{
-				ft_putchar ('\n');
-				ft_putendl(s->s);
-			}
-			s = s->next;
-			if (s->n != 2)
-			{
-				s = s->prev;
-				nb_blocks(s);
-			}
-			else
-				s = s->prev;
-		}
-		else
-			ft_putendl(s->s);
-		s = s->next;
-	}
-	return (0);
+	DIR				*dirp;
+	struct dirent	*read;
+
+	argv+=2;
+	if ((dirp = opendir(".")) != NULL)
+		while ((read = readdir(dirp)) != NULL)
+			if ((ft_strcmp(argv, read -> d_name)) == 0)
+				return (argv);
+	return (NULL);
 }

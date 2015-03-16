@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:33:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 11:12:03 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/16 15:01:57 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct		s_time
 t_list				*ft_create_elem(t_list *t, char *s, char *path, int n);
 t_list				*ret_ls(t_list *s, char **av, int flags, int nb);
 t_list				*opt_t(t_list *s);
-t_list				*ft_ls(char **av, int nb, char c);
+t_list				*ft_ls(char **av, int nb, char c, int flags);
 t_list				*opt_l(t_list *s);
 t_list				*tri_ascii(t_list *s);
 t_list				*tri_ascii_path(t_list *s);
@@ -60,7 +60,7 @@ t_list				*transfer(t_list *s, char *str, char *path, int n);
 t_list				*ft_ls_read(char *av, t_list *s, char c);
 
 char				*ft_ls_path(char *file, char *name);
-char				*av_chr(char *t, struct stat s, struct group *g, struct passwd *r);
+char				*av_chr(char *t, struct stat s, struct group *g);
 char				*ft_permission(char *tab);
 char				*name_owner(char *av);
 char				*ft_time(char *av);
