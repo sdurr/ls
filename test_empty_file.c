@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ret_ls.c                                           :+:      :+:    :+:   */
+/*   test_empty_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/17 15:26:36 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/17 15:33:25 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/17 15:39:05 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 #include "libft.h"
 
-t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
+t_list	*test_empty_file(t_list *s)
 {
-	char c;
+	t_list *begin;
 
-	if (flags & OPT_A)
+	begin = s;
+	while (s->next != NULL)
+		s = s->next;
+	if (s->n == 2)
 	{
-		c = 125;
-		s = ft_ls(av, nb, 125, flags);
+		s = ft_create_elem(s, ft_strdup(""), ft_strdup(""), -4);
 	}
-	else
-	{
-		c = '.';
-		s = ft_ls(av, nb, '.', flags);
-	}
-	s = tri_ascii(s);
-	if (ft_strcmp(s->s, "/ :") != 0)
-		if (flags & OPT_R_R)
-			while (test_dir(s) == 1)
-				s = open_list(s, c);
-	if (flags & OPT_T)
-		s = opt_t(s, flags);
-	if (flags & OPT_L)
-		s = opt_l(s);
-	return (s);
+	return (begin);
 }

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 12:57:22 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/17 11:36:50 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 14:49:09 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_list		*print_dir(t_list *s, int flags)
 
 static t_list		*print_first_link(t_list *s)
 {
-	if (ft_strcmp(s->s, ". :") == 0 && ft_strcmp(s->s, "/ :") == 0)
+	if (ft_strcmp(s->s, ". :") == 0 || ft_strcmp(s->s, "/ :") == 0)
 	{
 		nb_blocks(s);
 		s = s->next;

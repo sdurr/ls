@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/17 09:02:37 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/16 12:59:36 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/17 15:36:22 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -40,6 +40,7 @@ SRC			= main.c \
 				opt_t.c \
 				test_dir.c \
 				open_list.c \
+				test_empty_file.c \
 
 OBJ			= $(SRC:.c=.o)
 
