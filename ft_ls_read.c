@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 08:45:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/17 15:46:44 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 16:05:30 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list		*ft_ls_read(char *av, t_list *s, char c)
 				d = test_open(ft_ls_path(t, read->d_name));
 				s = ft_create_elem(s, ft_strdup(read->d_name), path, d);
 			}
-		}
+	}
 	else
 	{
 		path = ft_strjoin("./", t);

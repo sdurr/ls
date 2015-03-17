@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/14 13:30:27 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/17 15:38:18 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 16:05:06 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,17 @@ int			print_list(t_list *s, int flags)
 		{
 			if (!(flags & OPT_R_R) && (s->s[0] != '/'))
 				s->s += 2;
-			if (test(s) == 1)
+			if (test(s) == 1 && s->next != NULL)
 			{
 				ft_putchar ('\n');
 				ft_putendl(s->s);
 			}
+			if (s->next == NULL)
+				return (0);
 			s = s->next;
-			if (s->n != 2)
-			{
-				s = s->prev;
+			if (s->n != 2 && (s = s->prev))
 				nb_blocks(s);
-			}
-			else
+			else if (s)
 				s = s->prev;
 		}
 		else

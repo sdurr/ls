@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:35:51 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/17 15:07:19 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 16:02:28 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_list			*opt_l(t_list *s)
 	begin = s;
 	while (s)
 	{
-		while (s->n == 2)
+		while (s->n == 2 && s->next != NULL)
 			s = s->next;
 		lstat(s->path, &sb);
 		buf = ft_strdup(ft_permission(s->path));
