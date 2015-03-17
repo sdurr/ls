@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 09:35:51 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 16:17:43 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 10:31:06 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ t_list			*opt_l(t_list *s)
 	{
 		while (s->n == 2)
 			s = s->next;
-/*if test perm dossier*/
 		lstat(s->path, &sb);
 		buf = ft_strdup(ft_permission(s->path));
 		c = ft_count_sous_dossiers(s->path);
@@ -67,7 +66,5 @@ t_list			*opt_l(t_list *s)
 		}
 		s = s->next;
 	}
-
-
 	return (begin);
 }

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/16 08:43:54 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 11:38:52 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 10:42:56 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	t_list		*end_link(t_list *s, t_list *t)
 	return (begin);
 }
 
-t_time				stat_time(char *t_path, char *s_path)
+t_list				*stat_time(char *t_path, char *s_path, t_list *s, t_list *t)
 {
 	t_time			e;
 	struct stat		first;
@@ -45,12 +45,13 @@ t_time				stat_time(char *t_path, char *s_path)
 	lstat(s_path, &second);
 	e.first = first.st_mtime;
 	e.second = second.st_mtime;
-	return (e);
+	if (e.first > e.second)
+		s = exchange_link(s, t);
+	return (s);
 }
 
 t_list				*opt_t(t_list *s)
 {
-	t_time			e;
 	t_list			*t;
 	t_list			*begin;
 
@@ -64,11 +65,10 @@ t_list				*opt_t(t_list *s)
 		{
 			while (t->n != 2 && t->next != NULL)
 			{
-				e = stat_time(t->path, s->path);
-				if (e.first > e.second)
-					s = exchange_link(s, t);
+				s = stat_time(t->path, s->path, s, t);
 				t = t->next;
 			}
+			s = stat_time(t->path, s->path, s, t);
 			t = s;
 			s = s->next;
 		}

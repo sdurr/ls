@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 17:41:36 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 15:59:50 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 11:45:23 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ void		print_files(int flags, char *av)
 	{
 		s = malloc(sizeof(t_list));
 		s->s = ft_strdup(av);
-		s->path = ft_strjoin("./", av);
-		s->s += 2;
+		if (s->s[0] != '/')
+		{
+			s->path = ft_strjoin("./", av);
+			s->s += 2;
+		}
+		else
+			s->path = ft_strdup(av);
 		if (flags & OPT_L)
 			s = opt_l(s);
 		ft_putendl(s->s);

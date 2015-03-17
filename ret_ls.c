@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/09 08:49:35 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/16 15:01:21 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/17 10:35:45 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ t_list		*ret_ls(t_list *s, char **av, int flags, int nb)
 		s = ft_ls(av, nb, '.', flags);
 	}
 	s = tri_ascii(s);
-	if (flags & OPT_R_R)
-		while (test_dir(s) == 1)
-			s = open_list(s, c);
+	if (ft_strcmp(s->s, "/ :") != 0)
+		if (flags & OPT_R_R)
+			while (test_dir(s) == 1)
+				s = open_list(s, c);
 	if (flags & OPT_T)
 		s = opt_t(s);
 	if (flags & OPT_L)
